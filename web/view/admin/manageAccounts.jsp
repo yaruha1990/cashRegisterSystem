@@ -12,12 +12,19 @@
     <title>Manage accounts</title>
 </head>
 <body>
-
-<h2>List of users</h2>
+<jsp:include page="/view/header.jsp"></jsp:include>
 <jsp:include page="/view/logout.jsp"></jsp:include>
+<div style="padding: 20px">
+<a href="/view/admin/admin.jsp">To admin's page</a>
+</div>
+
+<div class="panel-heading">
+    <span style="padding: 20px;font-size:xx-large">List of users</span>
+</div>
+
 <c:if test="${sessionScope.role != 'admin'}">
-    <c:out value="Page is available as you didn't login as admin"></c:out><br>
-    <a href="/">To index page</a>
+    <label style="padding: 20px"><c:out value="Page is available as you didn't login as admin"></c:out></label><br>
+    <a style="padding: 20px" href="/">To index page</a>
 </c:if>
 
 <c:if test="${sessionScope.role == 'admin'}">
@@ -30,32 +37,54 @@
 
             <form method="post" action="/deleteUser" style="float: left">
                 <input type="number" hidden name="id" value="${user.id}">
-                <input type="submit" value="Delete">
+                <button type="submit" class="btn btn-success" value="Delete">Delete</button>
             </form>
 
             <form method="get" action="/updateUser">
                 <input type="number" hidden name="id" value="${user.id}">
-                <input type="submit" value="Update">
+                <button class="btn btn-success" type="submit" value="Update">Update</button>
             </form>
 
         </ul>
         <hr/>
     </c:forEach><br>
 
-    <h2>Create user</h2>
+    <div class="panel-heading">
+        <span style="padding: 20px;font-size:xx-large">Create user</span>
+    </div>
 
-    <form method="post" action="/createUser">
-        <label for="login"><input type="text" name="login" id="login" value="">Login</label><br>
-        <label for="password"><input type="password" name="password" id="password">Password</label><br>
-        <label for="role">Set role</label>
-        <select name="role" id="role">
-            <option>admin</option>
-            <option>cashier</option>
-            <option>senior cashier</option>
-            <option selected>merchant</option>
-        </select>
-        <input type="submit" value="Create"/>
-    </form>
+    <div class="row" style="padding: 20px">
+        <div class="form-group col-lg-6">
+            <form method="post" action="/createUser">
+
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" name="login" id="login">
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="form-group col-lg-3">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" id="password">
+                    </div>
+                </div>
+
+
+                <label for="role">Set role</label>
+                <select name="role" id="role">
+                    <option>admin</option>
+                    <option>cashier</option>
+                    <option>senior cashier</option>
+                    <option selected>merchant</option>
+                </select>
+                <button class="btn-success" type="submit" value="Create">Create</button>
+            </form>
+        </div>
+    </div>
 </c:if>
 
 </body>

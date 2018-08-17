@@ -12,24 +12,68 @@
     <title>Update product</title>
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
+<jsp:include page="/view/logout.jsp"></jsp:include>
 
-<h2>Update product</h2>
+<div class="panel-heading">
+    <span style="padding: 20px;font-size:xx-large">Update product</span>
+</div>
 
 <c:if test="${sessionScope.role != 'merchant'}">
+    <div style="padding: 20px">
     <c:out value="Page is available because your user role is not \'merchant\'"></c:out><br>
     <a href="/">To index page</a>
+    </div>
 </c:if>
 
 <c:if test="${sessionScope.role == 'merchant'}">
-    <form method="post" action="/updateProduct">
-        <label for="id"><input type="text" disabled name="id" id="id" value="${requestScope.product.id}"> ID</label><br>
-        <label for="vendorCode"><input type="text" name="vendorCode" id="vendorCode" value="${requestScope.product.vendorCode}"> Vendor code</label><br>
-        <label for="productName"><input type="text" name="productName" id="productName" value="${requestScope.product.productName}"> Product name</label><br>
-        <label for="price"><input type="number" min="0" name="price" id="price" value="${requestScope.product.price}"> Price</label><br>
-        <label for="quantity"><input type="number" min="0" name="quantity" id="quantity" value="${requestScope.product.quantityInStock}"> Quantity</label><br>
+    <div style="padding: 20px">
+        <label>To product list </label>
+        <button type="button" value="Back" onclick="history.back()" class="btn btn-success">Back</button>
+    </div>
+
+    <div style="padding: 20px">
+    <form method="post" action="/updateProduct" role="form">
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+        <label for="id">ID</label>
+        <input type="text" class="form-control" disabled name="id" id="id" value="${requestScope.product.id}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+        <label for="vendorCode">Vendor code</label>
+        <input type="text" class="form-control" name="vendorCode" id="vendorCode" value="${requestScope.product.vendorCode}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+        <label for="productName">Product name</label>
+        <input type="text" class="form-control" name="productName" id="productName" value="${requestScope.product.productName}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+        <label for="price">Price</label>
+        <input type="number" class="form-control" min="0" name="price" id="price" value="${requestScope.product.price}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+        <label for="quantity">Quantity</label>
+        <input type="number" class="form-control" min="0" name="quantity" id="quantity" value="${requestScope.product.quantityInStock}">
+            </div>
+        </div>
+
         <input type="text" hidden name="productId" value="${requestScope.product.id}">
-        <input type="submit" value="Update"/>
+        <button type="submit" class="btn-success" value="Update">Update</button>
     </form>
+    </div>
 </c:if>
 </body>
 </html>

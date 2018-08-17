@@ -12,29 +12,51 @@
     <title>Admin</title>
 </head>
 <body>
-<h1>Administrator page</h1>
 
-    <c:if test="${sessionScope.role != 'admin'}">
-        <c:out value="Page is available as you didn't login as admin"></c:out><br>
-        <a href="/">To index page</a>
-    </c:if>
+<jsp:include page="/view/header.jsp"></jsp:include>
+<jsp:include page="/view/logout.jsp"></jsp:include>
 
-    <c:if test="${sessionScope.role == 'admin'}">
-        <form method="post" action="manageSessions.jsp">
-            <label for="sessions">Click here to manage user sessions</label>
-            <input type="submit" id="sessions" value="Manage sessions">
-        </form><br>
+<div class="panel-heading">
+    <span style="padding: 20px;font-size:xx-large">Administrator page</span>
+</div>
 
-        <form method="get" action="/manageAccount">
-            <label for="accounts">Click here to manage user accounts</label>
-            <input type="submit" id="accounts" value="Manage accounts">
-        </form><br>
+<c:if test="${sessionScope.role != 'admin'}">
+    <div style="padding: 20px">
+    <label><c:out value="Page is available as you didn't login as admin"></c:out></label><br>
+    <a href="/">To index page</a>
+    </div>
+</c:if>
 
-        <form method="post" action="/identification">
-            Hello, <c:out value="${sessionScope.login}"></c:out>
-            <input type="submit" value="logout">
-        </form><br>
-    </c:if>
+<c:if test="${sessionScope.role == 'admin'}">
+
+    <div class="row" style="padding: 20px">
+        <div class="form-group col-lg-6">
+            <form method="post" action="manageSessions.jsp">
+                <label for="sessions" style="font-size: large">Click here to manage user sessions</label>
+                <button type="submit" class="btn btn-success" id="sessions" value="Manage sessions">Manage sessions</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="row" style="padding: 20px">
+        <div class="form-group col-lg-6">
+            <form method="get" action="/manageAccount">
+                <label for="accounts" style="font-size: large">Click here to manage user accounts</label>
+                <button type="submit" class="btn btn-success" id="accounts" value="Manage accounts">Manage accounts</button>
+            </form>
+        </div>
+    </div>
+
+    <%--<div class="row" style="padding: 20px">--%>
+        <%--<div class="form-group col-lg-4">--%>
+            <%--<form method="post" action="/identification">--%>
+                <%--<label style="font-size: large">Hello, <c:out value="${sessionScope.login}"></c:out></label>--%>
+                <%--<button type="submit" class="btn btn-success" value="logout">Logout</button>--%>
+            <%--</form>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+
+</c:if>
 
 </body>
 </html>

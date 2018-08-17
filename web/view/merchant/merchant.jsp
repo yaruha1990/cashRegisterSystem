@@ -12,18 +12,25 @@
     <title>Merchant page</title>
 </head>
 <body>
-    <h1>Merchant page</h1>
+<jsp:include page="/view/header.jsp"></jsp:include>
+<jsp:include page="/view/logout.jsp"></jsp:include>
+
+    <div class="panel-heading">
+        <span style="padding: 20px;font-size:xx-large">Merchant page</span>
+    </div>
 
     <c:if test="${sessionScope.role != 'merchant'}">
+        <div style="padding: 20px">
         <c:out value="Page is available because your user role is not \'merchant\'"></c:out><br>
         <a href="/">To index page</a>
+        </div>
     </c:if>
-
-    <jsp:include page="/view/logout.jsp"></jsp:include>
 
     <c:if test="${sessionScope.role == 'merchant'}">
         <c:if test="${!empty requestScope.products}">
-            <h2>Products in stock</h2>
+            <div class="panel-heading">
+                <span style="padding: 20px;font-size:xx-large">Products in stock</span>
+            </div>
             <c:forEach var="product" items="${requestScope.products}">
                 <ul>
                     <li>Vendor code: <c:out value="${product.vendorCode}"></c:out></li>
@@ -33,7 +40,7 @@
 
                     <form method="get" action="/updateProduct">
                         <input type="number" hidden name="id" value="${product.id}">
-                        <input type="submit" value="Update">
+                        <button type="submit" class="btn-success" value="Update">Update</button>
                     </form>
 
                     <hr/>
@@ -41,14 +48,47 @@
             </c:forEach>
         </c:if>
 
-        <h2>Create product here</h2>
-        <form method="post" action="/createProduct">
-            <label for="vendorCode"><input type="text" name="vendorCode" id="vendorCode"> Vendor code</label><br>
-            <label for="productName"><input type="text" name="productName" id="productName"> Product name</label><br>
-            <label for="price"><input type="number" min="0" name="price" id="price"> Price</label><br>
-            <label for="quantity"><input type="number" min="0" name="quantity" id="quantity"> Quantity</label><br>
-            <input type="submit" value="Create"/>
-        </form>
+        <div class="panel-heading">
+            <span style="padding: 20px;font-size:xx-large">Create product</span>
+        </div>
+
+        <div class="row" style="padding: 20px">
+            <div class="form-group col-lg-6">
+                <form method="post" action="/createProduct">
+
+                    <div class="row">
+                        <div class="form-group col-lg-3">
+                            <label for="vendorCode">Vendor code</label>
+                            <input type="text" class="form-control" name="vendorCode" id="vendorCode">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-3">
+                            <label for="productName">Product name</label>
+                            <input type="text" class="form-control" name="productName" id="productName">
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="form-group col-lg-3">
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control" min="0" name="price" id="price">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-lg-3">
+                            <label for="quantity">Quantity</label>
+                            <input type="number" class="form-control" min="0" name="quantity" id="quantity">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-success" value="Create">Create</button>
+                </form>
+            </div>
+        </div>
     </c:if>
 
 </body>

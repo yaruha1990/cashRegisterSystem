@@ -12,18 +12,47 @@
     <title>Update user</title>
 </head>
 <body>
+<jsp:include page="/view/header.jsp"></jsp:include>
+<jsp:include page="/view/logout.jsp"></jsp:include>
+<a style="padding: 20px" href="/view/admin/admin.jsp">To admin's page</a><br>
 
-<h2>Update user</h2>
+<div class="panel-heading">
+    <span style="padding: 20px;font-size:xx-large">Update user</span>
+</div>
+
 <c:if test="${sessionScope.role != 'admin'}">
-    <c:out value="Page is available as you didn't login as admin"></c:out>
-    <input type="button" value="Back" onclick="history.back()">
+    <div style="padding: 20px">
+    <label><c:out value="Page is available as you didn't login as admin"></c:out></label><br>
+    <a href="/">To index page</a>
+    </div>
 </c:if>
 
 <c:if test="${sessionScope.role == 'admin'}">
-    <form method="post" action="/updateUser">
-        <label for="id"><input type="text" disabled name="id" id="id" value="${requestScope.user.id}">ID</label><br>
-        <label for="login"><input type="text" name="login" id="login" value="${requestScope.user.login}">Login</label><br>
-        <label for="password"><input type="text" disabled name="password" id="password" value="${requestScope.user.password}">Password</label><br>
+    <div style="padding: 20px">
+    <form method="post" action="/updateUser" role="form">
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" disabled name="id" id="id" value="${requestScope.user.id}">
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <label for="login">Login</label>
+                <input type="text" class="form-control" name="login" id="login" value="${requestScope.user.login}">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-lg-3">
+                <label for="password">Password</label>
+                <input type="text" class="form-control" disabled name="password" id="password" value="${requestScope.user.password}">
+            </div>
+        </div>
+
         <label for="role">Set role</label>
         <select name="role" id="role">
             <option>admin</option>
@@ -33,8 +62,9 @@
         </select>
         <input type="text" hidden name="userId" value="${requestScope.user.id}">
         <input type="text" hidden name="userPassword" value="${requestScope.user.password}">
-        <input type="submit" value="Update"/>
+        <button type="submit" class="btn-success" value="Update">Update</button>
     </form>
+    </div>
 </c:if>
 
 </body>
