@@ -15,10 +15,9 @@ public class LocaleServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
         req.setCharacterEncoding("UTF-8");
-        String jspName = req.getHeader("referer");
 
         LocaleUtil localeUtil = new LocaleUtil(req.getParameter("btn"));
-        resp.sendRedirect(jspName);
+        resp.sendRedirect("/");
 
     }
 }
