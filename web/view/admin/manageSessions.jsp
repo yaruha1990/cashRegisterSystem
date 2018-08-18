@@ -32,7 +32,7 @@
                         <li>${sessionScope.loginAsBtnName}: <c:out value="${entry.value}"></c:out></li>
                         <li>${sessionScope.sessionIdAsLabelName}: <c:out value="${entry.key.id}"></c:out></li>
                         <input type="text" hidden name="sessionId" value="${entry.key.id}">
-                        <button type="submit" class="btn btn-success">${sessionScope.logout}</button>
+                        <button type="submit" class="btn btn-success">${sessionScope.stopSession}</button>
                         <button type="button" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
                         <hr/>
                     </ul>

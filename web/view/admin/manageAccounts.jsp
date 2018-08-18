@@ -30,10 +30,10 @@
 <c:if test="${sessionScope.role == 'admin'}">
     <c:forEach var="user" items="${requestScope.users}">
         <ul>
-            <li>${sessionScope.id}:<c:out value="${user.id}"/></li>
-            <li>${sessionScope.loginAsBtnName}:<c:out value="${user.login}"/></li>
-            <li>${sessionScope.passwordAsBtnName}:<c:out value="${user.password}"/></li>
-            <li>${sessionScope.roleAsBtnName}:<c:out value="${user.role}"/></li>
+            <li>${sessionScope.id}: <c:out value="${user.id}"/></li>
+            <li>${sessionScope.loginAsBtnName}: <c:out value="${user.login}"/></li>
+            <li>${sessionScope.passwordAsBtnName}: <c:out value="${user.password}"/></li>
+            <li>${sessionScope.roleAsBtnName}: <c:out value="${user.role}"/></li>
 
             <form method="post" action="/deleteUser" style="float: left">
                 <input type="number" hidden name="id" value="${user.id}">
