@@ -14,10 +14,10 @@
 <body>
 <jsp:include page="/view/header.jsp"></jsp:include>
 <jsp:include page="/view/logout.jsp"></jsp:include>
-<a style="padding: 20px" href="/view/admin/admin.jsp">To admin's page</a><br>
+<a style="padding: 20px" href="/view/admin/admin.jsp">${sessionScope.toAdminPage}</a><br>
 
 <div class="panel-heading">
-    <span style="padding: 20px;font-size:xx-large">Update user</span>
+    <span style="padding: 20px;font-size:xx-large">${sessionScope.updateUser}</span>
 </div>
 
 <c:if test="${sessionScope.role != 'admin'}">
@@ -33,7 +33,7 @@
 
         <div class="row">
             <div class="form-group col-lg-3">
-                <label for="id">ID</label>
+                <label for="id">${sessionScope.id}</label>
                 <input type="text" class="form-control" disabled name="id" id="id" value="${requestScope.user.id}">
             </div>
         </div>
@@ -41,28 +41,28 @@
 
         <div class="row">
             <div class="form-group col-lg-3">
-                <label for="login">Login</label>
+                <label for="login">${sessionScope.loginAsBtnName}</label>
                 <input type="text" class="form-control" name="login" id="login" value="${requestScope.user.login}">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-lg-3">
-                <label for="password">Password</label>
+                <label for="password">${sessionScope.passwordAsBtnName}</label>
                 <input type="text" class="form-control" disabled name="password" id="password" value="${requestScope.user.password}">
             </div>
         </div>
 
-        <label for="role">Set role</label>
+        <label for="role">${sessionScope.setRole}</label>
         <select name="role" id="role">
-            <option>admin</option>
-            <option>cashier</option>
-            <option>senior cashier</option>
-            <option selected>merchant</option>
+            <option value="admin">${sessionScope.admin}</option>
+            <option value="cashier">${sessionScope.cashier}</option>
+            <option value="senior cashier">${sessionScope.seniorCashier}</option>
+            <option value="merchant" selected>${sessionScope.merchant}</option>
         </select>
         <input type="text" hidden name="userId" value="${requestScope.user.id}">
         <input type="text" hidden name="userPassword" value="${requestScope.user.password}">
-        <button type="submit" class="btn-success" value="Update">Update</button>
+        <button type="submit" class="btn-success">${sessionScope.updateAsBtnName}</button>
     </form>
     </div>
 </c:if>

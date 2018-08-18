@@ -16,7 +16,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <span style="padding: 20px;font-size:xx-large">Cash Register System</span>
+        <span style="padding: 20px;font-size:xx-large">${sessionScope.title}</span>
     </div>
 </div>
 

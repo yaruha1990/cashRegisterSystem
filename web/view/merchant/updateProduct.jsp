@@ -16,7 +16,7 @@
 <jsp:include page="/view/logout.jsp"></jsp:include>
 
 <div class="panel-heading">
-    <span style="padding: 20px;font-size:xx-large">Update product</span>
+    <span style="padding: 20px;font-size:xx-large">${sessionScope.updateProduct}</span>
 </div>
 
 <c:if test="${sessionScope.role != 'merchant'}">
@@ -28,8 +28,8 @@
 
 <c:if test="${sessionScope.role == 'merchant'}">
     <div style="padding: 20px">
-        <label>To product list </label>
-        <button type="button" value="Back" onclick="history.back()" class="btn btn-success">Back</button>
+        <label>${sessionScope.toProductList} </label>
+        <button type="button" value="Back" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
     </div>
 
     <div style="padding: 20px">
@@ -37,41 +37,41 @@
 
         <div class="row">
             <div class="form-group col-lg-3">
-        <label for="id">ID</label>
+        <label for="id">${sessionScope.id}</label>
         <input type="text" class="form-control" disabled name="id" id="id" value="${requestScope.product.id}">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-lg-3">
-        <label for="vendorCode">Vendor code</label>
+        <label for="vendorCode">${sessionScope.vendorCode}</label>
         <input type="text" class="form-control" name="vendorCode" id="vendorCode" value="${requestScope.product.vendorCode}">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-lg-3">
-        <label for="productName">Product name</label>
+        <label for="productName">${sessionScope.productCode}</label>
         <input type="text" class="form-control" name="productName" id="productName" value="${requestScope.product.productName}">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-lg-3">
-        <label for="price">Price</label>
+        <label for="price">${sessionScope.price}</label>
         <input type="number" class="form-control" min="0" name="price" id="price" value="${requestScope.product.price}">
             </div>
         </div>
 
         <div class="row">
             <div class="form-group col-lg-3">
-        <label for="quantity">Quantity</label>
+        <label for="quantity">${sessionScope.quantity}</label>
         <input type="number" class="form-control" min="0" name="quantity" id="quantity" value="${requestScope.product.quantityInStock}">
             </div>
         </div>
 
         <input type="text" hidden name="productId" value="${requestScope.product.id}">
-        <button type="submit" class="btn-success" value="Update">Update</button>
+        <button type="submit" class="btn-success">${sessionScope.updateAsBtnName}</button>
     </form>
     </div>
 </c:if>

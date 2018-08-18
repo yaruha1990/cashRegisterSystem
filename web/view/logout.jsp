@@ -20,8 +20,8 @@
 <div class="row" style="padding: 20px">
     <div class="form-group col-lg-6">
         <form method="post" action="/identification">
-            Hello, <c:out value="${sessionScope.login}"></c:out>
-            <button type="submit" class="btn btn-success" value="logout">Logout</button>
+            ${sessionScope.hello}, <c:out value="${sessionScope.login}"></c:out>
+            <button type="submit" class="btn btn-success" value="logout">${sessionScope.logout}</button>
         </form>
     </div>
 </div>

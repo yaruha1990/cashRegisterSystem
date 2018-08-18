@@ -15,11 +15,11 @@
 <jsp:include page="/view/header.jsp"></jsp:include>
 <jsp:include page="/view/logout.jsp"></jsp:include>
 <div style="padding: 20px">
-<a href="/view/admin/admin.jsp">To admin's page</a>
+<a href="/view/admin/admin.jsp">${sessionScope.toAdminPage}</a>
 </div>
 
 <div class="panel-heading">
-    <span style="padding: 20px;font-size:xx-large">List of users</span>
+    <span style="padding: 20px;font-size:xx-large">${sessionScope.usersList}</span>
 </div>
 
 <c:if test="${sessionScope.role != 'admin'}">
@@ -30,19 +30,19 @@
 <c:if test="${sessionScope.role == 'admin'}">
     <c:forEach var="user" items="${requestScope.users}">
         <ul>
-            <li>ID:<c:out value="${user.id}"/></li>
-            <li>Login:<c:out value="${user.login}"/></li>
-            <li>Password:<c:out value="${user.password}"/></li>
-            <li>Role:<c:out value="${user.role}"/></li>
+            <li>${sessionScope.id}:<c:out value="${user.id}"/></li>
+            <li>${sessionScope.loginAsBtnName}:<c:out value="${user.login}"/></li>
+            <li>${sessionScope.passwordAsBtnName}:<c:out value="${user.password}"/></li>
+            <li>${sessionScope.roleAsBtnName}:<c:out value="${user.role}"/></li>
 
             <form method="post" action="/deleteUser" style="float: left">
                 <input type="number" hidden name="id" value="${user.id}">
-                <button type="submit" class="btn btn-success" value="Delete">Delete</button>
+                <button type="submit" class="btn btn-success">${sessionScope.deleteAsBtnName}</button>
             </form>
 
             <form method="get" action="/updateUser">
                 <input type="number" hidden name="id" value="${user.id}">
-                <button class="btn btn-success" type="submit" value="Update">Update</button>
+                <button class="btn btn-success" type="submit">${sessionScope.updateAsBtnName}</button>
             </form>
 
         </ul>
@@ -50,7 +50,7 @@
     </c:forEach><br>
 
     <div class="panel-heading">
-        <span style="padding: 20px;font-size:xx-large">Create user</span>
+        <span style="padding: 20px;font-size:xx-large">${sessionScope.createUser}</span>
     </div>
 
     <div class="row" style="padding: 20px">
@@ -59,29 +59,28 @@
 
                 <div class="row">
                     <div class="form-group col-lg-3">
-                <label for="login">Login</label>
+                <label for="login">${sessionScope.loginAsBtnName}</label>
                 <input type="text" class="form-control" name="login" id="login">
                     </div>
                 </div>
 
 
-
                 <div class="row">
                     <div class="form-group col-lg-3">
-                <label for="password">Password</label>
+                <label for="password">${sessionScope.passwordAsBtnName}</label>
                 <input type="password" class="form-control" name="password" id="password">
                     </div>
                 </div>
 
 
-                <label for="role">Set role</label>
+                <label for="role">${sessionScope.setRole}</label>
                 <select name="role" id="role">
-                    <option>admin</option>
-                    <option>cashier</option>
-                    <option>senior cashier</option>
-                    <option selected>merchant</option>
+                    <option value="admin">${sessionScope.admin}</option>
+                    <option value="cashier">${sessionScope.cashier}</option>
+                    <option value="senior cashier">${sessionScope.seniorCashier}</option>
+                    <option value="merchant" selected>${sessionScope.merchant}</option>
                 </select>
-                <button class="btn-success" type="submit" value="Create">Create</button>
+                <button class="btn-success" type="submit">${sessionScope.create}</button>
             </form>
         </div>
     </div>

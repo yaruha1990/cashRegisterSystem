@@ -29,11 +29,11 @@
             <div class="form-group col-lg-6">
                 <form method="post" action="/adminLogout">
                     <ul>
-                        <li>Login: <c:out value="${entry.value}"></c:out></li>
-                        <li>SessionId: <c:out value="${entry.key.id}"></c:out></li>
+                        <li>${sessionScope.loginAsBtnName}: <c:out value="${entry.value}"></c:out></li>
+                        <li>${sessionScope.sessionIdAsLabelName}: <c:out value="${entry.key.id}"></c:out></li>
                         <input type="text" hidden name="sessionId" value="${entry.key.id}">
-                        <button type="submit" value="logout" class="btn btn-success">Logout</button>
-                        <button type="button" value="Back" onclick="history.back()" class="btn btn-success">Back</button>
+                        <button type="submit" class="btn btn-success">${sessionScope.logout}</button>
+                        <button type="button" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
                         <hr/>
                     </ul>
                 </form>
