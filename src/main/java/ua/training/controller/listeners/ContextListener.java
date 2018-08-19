@@ -1,4 +1,4 @@
-package ua.training.controller;
+package ua.training.controller.listeners;
 
 import ua.training.model.utils.LocaleUtil;
 

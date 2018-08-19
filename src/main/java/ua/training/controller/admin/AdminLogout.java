@@ -1,6 +1,6 @@
 package ua.training.controller.admin;
 
-import ua.training.controller.SessionListener;
+import ua.training.controller.listeners.SessionListener;
 import ua.training.model.utils.LocaleUtil;
 
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/adminLogout")
-public class LogoutServlet extends HttpServlet {
+public class AdminLogout extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
@@ -22,3 +22,4 @@ public class LogoutServlet extends HttpServlet {
         resp.sendRedirect(localeUtilURL.getText("manageSessions"));
     }
 }
+

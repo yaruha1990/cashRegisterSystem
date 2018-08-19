@@ -18,7 +18,6 @@ public class ProductListServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-
         ProductDao productDao = DaoFactory.getInstance().getProductDao();
         List<Product> products = productDao.findAll();
         req.setAttribute("products",products);

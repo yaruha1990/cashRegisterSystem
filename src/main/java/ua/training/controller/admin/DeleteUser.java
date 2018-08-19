@@ -18,7 +18,6 @@ public class DeleteUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-
         int id = Integer.valueOf(req.getParameter("id"));
         UserDao userDao = DaoFactory.getInstance().getUserDao();
         userDao.deleteUser(id);

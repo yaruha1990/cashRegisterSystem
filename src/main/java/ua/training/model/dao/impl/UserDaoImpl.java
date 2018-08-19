@@ -29,7 +29,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(3,user.getRole());
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Such login is already taken");
         }
     }
 

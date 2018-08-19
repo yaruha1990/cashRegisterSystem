@@ -27,7 +27,6 @@ public class UpdateUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-
         UserDao userDao = DaoFactory.getInstance().getUserDao();
         int id = Integer.valueOf(req.getParameter("userId"));
         String login = req.getParameter("login");

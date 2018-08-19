@@ -19,7 +19,7 @@
 
 <div class="row" style="padding: 20px">
     <div class="form-group col-lg-6">
-        <form method="post" action="/identification">
+        <form method="post" action="/logout">
             ${sessionScope.hello}, <c:out value="${sessionScope.login}"></c:out>
             <button type="submit" class="btn btn-success" value="logout">${sessionScope.logout}</button>
         </form>

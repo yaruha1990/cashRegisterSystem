@@ -13,11 +13,9 @@ import java.io.IOException;
 public class LocaleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html;charset=utf-8");
-        req.setCharacterEncoding("UTF-8");
-
         LocaleUtil localeUtil = new LocaleUtil(req.getParameter("btn"));
         req.getSession().setAttribute("loaded","true");
+        req.getSession().setAttribute("btnvalue",req.getParameter("btn"));
         req.getSession().setAttribute("title",localeUtil.getText("title"));
         req.getSession().setAttribute("loginAsBtnName",localeUtil.getText("loginAsBtnName"));
         req.getSession().setAttribute("passwordAsBtnName",localeUtil.getText("passwordAsBtnName"));
@@ -53,8 +51,6 @@ public class LocaleServlet extends HttpServlet {
         req.getSession().setAttribute("createProduct",localeUtil.getText("createProduct"));
         req.getSession().setAttribute("updateProduct",localeUtil.getText("updateProduct"));
         req.getSession().setAttribute("toProductList",localeUtil.getText("toProductList"));
-
         resp.sendRedirect("/");
-
     }
 }

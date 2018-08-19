@@ -18,7 +18,6 @@ public class CreateUser extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         String role = req.getParameter("role");

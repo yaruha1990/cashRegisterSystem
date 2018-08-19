@@ -1,4 +1,4 @@
-package ua.training.controller;
+package ua.training.controller.listeners;
 
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
