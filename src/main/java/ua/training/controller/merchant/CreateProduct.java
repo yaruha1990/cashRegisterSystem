@@ -20,7 +20,6 @@ public class CreateProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-
         String vendorCode = req.getParameter("vendorCode");
         String productName = req.getParameter("productName");
         double price = Double.parseDouble(req.getParameter("price"));

@@ -23,6 +23,7 @@ public class LocaleServlet extends HttpServlet {
         req.getSession().setAttribute("hello",localeUtil.getText("hello"));
         req.getSession().setAttribute("logout",localeUtil.getText("logout"));
         req.getSession().setAttribute("administratorPage",localeUtil.getText("administratorPage"));
+        req.getSession().setAttribute("cashierPage",localeUtil.getText("cashierPage"));
         req.getSession().setAttribute("manageSessions",localeUtil.getText("manageSessions"));
         req.getSession().setAttribute("manageAccounts",localeUtil.getText("manageAccounts"));
         req.getSession().setAttribute("sessionIdAsLabelName",localeUtil.getText("sessionIdAsLabelName"));
@@ -51,6 +52,14 @@ public class LocaleServlet extends HttpServlet {
         req.getSession().setAttribute("createProduct",localeUtil.getText("createProduct"));
         req.getSession().setAttribute("updateProduct",localeUtil.getText("updateProduct"));
         req.getSession().setAttribute("toProductList",localeUtil.getText("toProductList"));
+        req.getSession().setAttribute("openChekBtnName",localeUtil.getText("openChekBtnName"));
+        req.getSession().setAttribute("toCashierPage",localeUtil.getText("toCashierPage"));
+        req.getSession().setAttribute("addProduct",localeUtil.getText("addProduct"));
+        req.getSession().setAttribute("toCheckPage",localeUtil.getText("toCheckPage"));
+        req.getSession().setAttribute("cantAddProduct",localeUtil.getText("cantAddProduct"));
+        req.getSession().setAttribute("historyBack",localeUtil.getText("historyBack"));
+        req.getSession().setAttribute("saveCheck",localeUtil.getText("saveCheck"));
+        req.getSession().setAttribute("checkCreated",localeUtil.getText("checkCreated"));
         resp.sendRedirect("/");
     }
 }

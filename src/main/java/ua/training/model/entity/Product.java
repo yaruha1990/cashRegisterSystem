@@ -26,6 +26,21 @@ public class Product {
         this.quantityInStock = quantityInStock;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return vendorCode != null ? vendorCode.equals(product.vendorCode) : product.vendorCode == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return vendorCode != null ? vendorCode.hashCode() : 0;
+    }
+
     public int getId() {
         return id;
     }

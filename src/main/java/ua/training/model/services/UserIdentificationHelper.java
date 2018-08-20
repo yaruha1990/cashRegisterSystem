@@ -8,13 +8,18 @@ import java.util.List;
 
 public class UserIdentificationHelper {
 
+    private UserDao userDao;
+
+    public UserIdentificationHelper(){
+        userDao = DaoFactory.getInstance().getUserDao();
+    }
+
     /**
      * Check existence of user in system depending on the user's login which is unique
      * @param login
      * @return boolean does user exist or not
      */
     public boolean isUserExist(String login){
-        UserDao userDao = DaoFactory.getInstance().getUserDao();
         List<User> users = userDao.findAll();
         for (User user:users) {
             if (user.getLogin().equals(login)){
@@ -31,7 +36,6 @@ public class UserIdentificationHelper {
      * @return boolean is user valid or not
      */
     public boolean isUserValid(String login, String password){
-        UserDao userDao = DaoFactory.getInstance().getUserDao();
         List<User> users = userDao.findAll();
         for (User user:users) {
             if (user.getLogin().equals(login) && user.getPassword().equals(new PasswordMD5Encoder().getMD5EncodedPassword(password))){
@@ -47,7 +51,6 @@ public class UserIdentificationHelper {
      * @return user's role
      */
     public String getRoleByLogin(String login){
-        UserDao userDao = DaoFactory.getInstance().getUserDao();
         return userDao.findUserByLogin(login).getRole();
     }
 }

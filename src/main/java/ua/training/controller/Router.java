@@ -1,17 +1,12 @@
 package ua.training.controller;
 
-import ua.training.model.services.RegExp;
-import ua.training.model.services.UserIdentificationHelper;
 import ua.training.model.utils.LocaleUtil;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet("/router")
 public class Router extends HttpServlet {
@@ -30,8 +25,8 @@ public class Router extends HttpServlet {
             req.getRequestDispatcher("/productList").forward(req,resp);
         }
 
-        if (userRole.equalsIgnoreCase("cashier")||userRole.equalsIgnoreCase("senior cashier")){
-            resp.sendRedirect("/view/logout.jsp");
+        if (userRole.equals("cashier")){
+            resp.sendRedirect(localeUtilURL.getText("cashier"));
         }
 
     }

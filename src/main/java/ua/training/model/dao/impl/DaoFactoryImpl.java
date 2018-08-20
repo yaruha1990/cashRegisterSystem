@@ -1,5 +1,7 @@
 package ua.training.model.dao.impl;
 
+import ua.training.model.dao.CheckDao;
+import ua.training.model.dao.ChecksProductsDao;
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
 
@@ -19,14 +21,23 @@ public class DaoFactoryImpl extends DaoFactory {
         return new ProductDaoImpl(getConnection());
     }
 
+    @Override
+    public ChecksProductsDao getChecksProductsDao() {
+        return new ChecksProductsDaoImpl(getConnection());
+    }
+
+    @Override
+    public CheckDao getCheckDao() {
+        return new CheckDaoImpl(getConnection());
+    }
+
     private Connection getConnection(){
-        Connection connection = null;
         try {
-            connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/cashregister?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "1234" );
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/cashregister", "root", "1234" );
+            return connection;
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Connection problems");
         }
-        return connection;
     }
 }
