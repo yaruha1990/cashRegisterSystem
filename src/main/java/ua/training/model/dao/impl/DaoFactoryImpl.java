@@ -4,8 +4,11 @@ import ua.training.model.dao.CheckDao;
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DaoFactoryImpl extends DaoFactory {
@@ -27,11 +30,12 @@ public class DaoFactoryImpl extends DaoFactory {
 
     private Connection getConnection(){
         try {
-            Connection connection = DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/cashregister", "root", "1234" );
-            return connection;
-        } catch (SQLException e) {
-            throw new RuntimeException("Connection problems");
+            Context initContext= new InitialContext();
+            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/TestDB");
+            return ds.getConnection();
+        }catch (NamingException | SQLException e){
+            e.printStackTrace();
+            throw new RuntimeException("DB connection problems");
         }
     }
 }
