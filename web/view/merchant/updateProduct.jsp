@@ -33,7 +33,7 @@
     </div>
 
     <div style="padding: 20px">
-    <form method="post" action="/updateProduct" role="form">
+    <form method="post" action="/app/updateProductPost" role="form">
 
         <div class="row">
             <div class="form-group col-lg-3">

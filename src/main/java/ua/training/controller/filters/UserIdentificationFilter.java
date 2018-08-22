@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebFilter("/router")
+@WebFilter("/app/router")
 public class UserIdentificationFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

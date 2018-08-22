@@ -1,7 +1,6 @@
 package ua.training.model.dao.impl;
 
 import ua.training.model.dao.CheckDao;
-import ua.training.model.dao.ChecksProductsDao;
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
 
@@ -19,11 +18,6 @@ public class DaoFactoryImpl extends DaoFactory {
     @Override
     public ProductDao getProductDao() {
         return new ProductDaoImpl(getConnection());
-    }
-
-    @Override
-    public ChecksProductsDao getChecksProductsDao() {
-        return new ChecksProductsDaoImpl(getConnection());
     }
 
     @Override

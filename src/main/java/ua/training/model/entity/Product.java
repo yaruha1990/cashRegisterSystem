@@ -5,20 +5,20 @@ public class Product {
     private int id;
     private String vendorCode;
     private String productName;
-    private double price;
+    private int price;
     private int quantityInStock;
 
     public Product() {
     }
 
-    public Product(String vendorCode, String productName, double price, int quantityInStock) {
+    public Product(String vendorCode, String productName, int price, int quantityInStock) {
         this.vendorCode = vendorCode;
         this.productName = productName;
         this.price = price;
         this.quantityInStock = quantityInStock;
     }
 
-    public Product(int id, String vendorCode, String productName, double price, int quantityInStock) {
+    public Product(int id, String vendorCode, String productName, int price, int quantityInStock) {
         this.id = id;
         this.vendorCode = vendorCode;
         this.productName = productName;
@@ -65,11 +65,11 @@ public class Product {
         this.productName = productName;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

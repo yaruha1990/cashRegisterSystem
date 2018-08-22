@@ -35,12 +35,12 @@
             <li>${sessionScope.passwordAsBtnName}: <c:out value="${user.password}"/></li>
             <li>${sessionScope.roleAsBtnName}: <c:out value="${user.role}"/></li>
 
-            <form method="post" action="/deleteUser" style="float: left">
+            <form method="post" action="/app/deleteUser" style="float: left">
                 <input type="number" hidden name="id" value="${user.id}">
                 <button type="submit" class="btn btn-success">${sessionScope.deleteAsBtnName}</button>
             </form>
 
-            <form method="get" action="/updateUser">
+            <form method="get" action="/app/updateUserGet">
                 <input type="number" hidden name="id" value="${user.id}">
                 <button class="btn btn-success" type="submit">${sessionScope.updateAsBtnName}</button>
             </form>
@@ -55,7 +55,7 @@
 
     <div class="row" style="padding: 20px">
         <div class="form-group col-lg-6">
-            <form method="post" action="/createUser">
+            <form method="post" action="/app/createUser">
 
                 <div class="row">
                     <div class="form-group col-lg-3">

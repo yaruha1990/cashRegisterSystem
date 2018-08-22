@@ -40,7 +40,6 @@ public class CheckDaoImpl implements CheckDao {
             ps.setString(4,check.getDateTime());
             ps.execute();
 
-
             ps = connection.prepareStatement("insert into `checks_products` (check_id, product_id, product_quantity) values (?,?,?)");
             PreparedStatement preparedStatement = connection.prepareStatement("update product set quantity_in_stock=quantity_in_stock-? where id=?");
             for(Map.Entry<Product, Integer> entry : check.getProducts().entrySet()) {

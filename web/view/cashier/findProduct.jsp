@@ -34,7 +34,7 @@
 <c:if test="${sessionScope.role == 'cashier'}">
 <div style="padding: 20px">
 
-    <form method="post" action="/addProductToCheck" role="form">
+    <form method="post" action="/app/addProductToCheck" role="form">
 
         <div class="row">
             <div class="form-group col-lg-3">

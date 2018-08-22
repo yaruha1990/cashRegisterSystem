@@ -63,7 +63,7 @@
 
     <div class="row" style="padding: 20px">
         <div class="form-group col-lg-6">
-            <form method="post" action="/saveCheck">
+            <form method="post" action="/app/saveCheck">
                 <button type="submit" class="btn btn-success">${sessionScope.saveCheck}</button>
             </form>
         </div>

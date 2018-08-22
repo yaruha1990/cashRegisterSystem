@@ -38,7 +38,7 @@
                     <li>${sessionScope.price}: <c:out value="${product.price}"></c:out></li>
                     <li>${sessionScope.quantity}: <c:out value="${product.quantityInStock}"></c:out></li>
 
-                    <form method="get" action="/updateProduct">
+                    <form method="get" action="/app/updateProductGet">
                         <input type="number" hidden name="id" value="${product.id}">
                         <button type="submit" class="btn-success">${sessionScope.updateAsBtnName}</button>
                     </form>
@@ -54,7 +54,7 @@
 
         <div class="row" style="padding: 20px">
             <div class="form-group col-lg-6">
-                <form method="post" action="/createProduct">
+                <form method="post" action="/app/createProduct">
 
                     <div class="row">
                         <div class="form-group col-lg-3">

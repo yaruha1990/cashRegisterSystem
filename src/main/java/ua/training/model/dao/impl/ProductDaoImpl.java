@@ -23,7 +23,7 @@ public class ProductDaoImpl implements ProductDao {
                 ("INSERT INTO product (vendor_code , product_name, price, quantity_in_stock ) VALUES (?, ?, ?, ?)")){
             ps.setString(1 , product.getVendorCode());
             ps.setString(2 ,product.getProductName());
-            ps.setDouble(3,product.getPrice());
+            ps.setInt(3,product.getPrice());
             ps.setInt(4,product.getQuantityInStock());
             ps.execute();
         } catch (SQLException e) {
@@ -52,7 +52,7 @@ public class ProductDaoImpl implements ProductDao {
         product.setId(resultSet.getInt("id"));
         product.setVendorCode(resultSet.getString("vendor_code"));
         product.setProductName(resultSet.getString("product_name"));
-        product.setPrice(resultSet.getDouble("price"));
+        product.setPrice(resultSet.getInt("price"));
         product.setQuantityInStock(resultSet.getInt("quantity_in_stock"));
         return product;
     }
@@ -93,7 +93,7 @@ public class ProductDaoImpl implements ProductDao {
                 "quantity_in_stock=? where id=?")) {
             ps.setString(1,product.getVendorCode());
             ps.setString(2,product.getProductName());
-            ps.setDouble(3,product.getPrice());
+            ps.setInt(3,product.getPrice());
             ps.setInt(4,product.getQuantityInStock());
             ps.setInt(5,product.getId());
             ps.executeUpdate();

@@ -29,7 +29,7 @@
 
 <c:if test="${sessionScope.role == 'admin'}">
     <div style="padding: 20px">
-    <form method="post" action="/updateUser" role="form">
+    <form method="post" action="/app/updateUserPost" role="form">
 
         <div class="row">
             <div class="form-group col-lg-3">

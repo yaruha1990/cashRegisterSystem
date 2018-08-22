@@ -34,7 +34,7 @@
 
 
   <div style="padding: 20px">
-    <form method="get" action="/router" role="form">
+    <form method="post" action="/app/router" role="form">
 
       <div class="row">
         <div class="form-group col-lg-3">

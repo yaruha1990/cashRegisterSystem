@@ -16,6 +16,8 @@
 <jsp:include page="/view/header.jsp"></jsp:include>
 <jsp:include page="/view/logout.jsp"></jsp:include>
 
+
+
 <c:if test="${sessionScope.role != 'admin'}">
     <div style="padding: 20px">
     <c:out value="Page is available as you didn't login as admin"></c:out><br>
@@ -24,16 +26,18 @@
 </c:if>
 
 <c:if test="${sessionScope.role == 'admin'}">
+    <div style="padding: 20px;">
+        <button type="button" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
+    </div>
     <c:forEach items="${applicationScope.sessions}" var="entry">
         <div class="row" style="padding: 20px">
             <div class="form-group col-lg-6">
-                <form method="post" action="/adminLogout">
+                <form method="post" action="/app/adminLogout">
                     <ul>
                         <li>${sessionScope.loginAsBtnName}: <c:out value="${entry.value}"></c:out></li>
                         <li>${sessionScope.sessionIdAsLabelName}: <c:out value="${entry.key.id}"></c:out></li>
                         <input type="text" hidden name="sessionId" value="${entry.key.id}">
                         <button type="submit" class="btn btn-success">${sessionScope.stopSession}</button>
-                        <button type="button" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
                         <hr/>
                     </ul>
                 </form>

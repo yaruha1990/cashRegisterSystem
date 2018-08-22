@@ -39,7 +39,7 @@
 
     <div class="row" style="padding: 20px">
         <div class="form-group col-lg-6">
-            <form method="get" action="/manageAccount">
+            <form method="get" action="/app/manageAccounts">
                 <button type="submit" class="btn btn-success" id="accounts">${sessionScope.manageAccounts}</button>
             </form>
         </div>

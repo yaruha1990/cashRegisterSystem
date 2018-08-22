@@ -11,8 +11,6 @@ public abstract class DaoFactory {
 
     public abstract CheckDao getCheckDao();
 
-    public abstract ChecksProductsDao getChecksProductsDao();
-
     public static DaoFactory getInstance(){
         if( daoFactory == null ){
             daoFactory = new DaoFactoryImpl();
