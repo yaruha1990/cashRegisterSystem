@@ -22,7 +22,7 @@
 
 <c:if test="${sessionScope.role != 'admin'}">
     <div style="padding: 20px">
-    <label><c:out value="Page is available as you didn't login as admin"></c:out></label><br>
+    <label><c:out value="Page is unavailable as you didn't login as admin"></c:out></label><br>
     <a href="/">To index page</a>
     </div>
 </c:if>

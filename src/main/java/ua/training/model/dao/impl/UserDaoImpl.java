@@ -98,7 +98,7 @@ public class UserDaoImpl implements UserDao {
             ps.setInt(4,user.getId());
             ps.executeUpdate();
         }catch (SQLException e){
-            e.printStackTrace();
+            throw new RuntimeException("Such login is already taken");
         }
     }
 

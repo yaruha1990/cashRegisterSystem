@@ -27,7 +27,7 @@ public class ProductDaoImpl implements ProductDao {
             ps.setInt(4,product.getQuantityInStock());
             ps.execute();
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Such vendor code already exists");
         }
     }
 
@@ -98,7 +98,7 @@ public class ProductDaoImpl implements ProductDao {
             ps.setInt(5,product.getId());
             ps.executeUpdate();
         }catch (SQLException e){
-            e.printStackTrace();
+            throw new RuntimeException("Such vendor code already exists");
         }
     }
 

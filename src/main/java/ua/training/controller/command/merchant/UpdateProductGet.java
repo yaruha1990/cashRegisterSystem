@@ -16,7 +16,6 @@ public class UpdateProductGet implements Command {
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductDao productDao = DaoFactory.getInstance().getProductDao();
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-        System.out.println(req.getParameter("id"));
         Product product = productDao.findProductById(Integer.valueOf(req.getParameter("id")));
         req.setAttribute("product",product);
         return localeUtilURL.getText("updateProduct");

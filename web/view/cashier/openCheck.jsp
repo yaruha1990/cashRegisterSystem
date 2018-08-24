@@ -25,7 +25,7 @@
 
 <c:if test="${sessionScope.role != 'cashier'}">
     <div style="padding: 20px">
-        <label><c:out value="Page is available as you didn't login as cashier"></c:out></label><br>
+        <label><c:out value="Page is unavailable as you didn't login as cashier"></c:out></label><br>
         <a href="/">To index page</a>
     </div>
 </c:if>
@@ -61,13 +61,15 @@
         </div>
     </div>
 
-    <div class="row" style="padding: 20px">
-        <div class="form-group col-lg-6">
-            <form method="post" action="/app/saveCheck">
-                <button type="submit" class="btn btn-success">${sessionScope.saveCheck}</button>
-            </form>
+    <c:if test="${sessionScope.check != null}">
+        <div class="row" style="padding: 20px">
+            <div class="form-group col-lg-6">
+                <form method="post" action="/app/saveCheck">
+                    <button type="submit" class="btn btn-success">${sessionScope.saveCheck}</button>
+                </form>
+            </div>
         </div>
-    </div>
+    </c:if>
 </c:if>
 
 </body>

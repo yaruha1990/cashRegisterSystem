@@ -33,10 +33,10 @@
                 <version>3.2.2</version>
                 <configuration>
                     <webappDirectory>web</webappDirectory>
-                    <webXml>web/WEB-INF/web.xml</webXml>
                 </configuration>
             </plugin>
 
+            <!-- mvn tomcat7:deploy(undeploy, redeploy) -->
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>

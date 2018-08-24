@@ -21,7 +21,7 @@
 
     <c:if test="${sessionScope.role != 'merchant'}">
         <div style="padding: 20px">
-        <c:out value="Page is available because your user role is not \'merchant\'"></c:out><br>
+        <c:out value="Page is unavailable because your user role is not \'merchant\'"></c:out><br>
         <a href="/">To index page</a>
         </div>
     </c:if>

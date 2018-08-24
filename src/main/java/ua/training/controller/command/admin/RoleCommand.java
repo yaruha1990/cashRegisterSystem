@@ -17,7 +17,7 @@ public class RoleCommand implements Command {
             return "redirect:"+localeUtilURL.getText("admin");
         }
         if (userRole.equals("merchant")){
-            return "/app/products";
+            return "redirect:/app/products";
         }
         if (userRole.equals("cashier")){
             return "redirect:"+localeUtilURL.getText("cashier");

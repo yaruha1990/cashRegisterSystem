@@ -16,7 +16,6 @@ public class SaveCheck implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         CheckService checkService = new CheckService();
-        LocaleUtil localeUtil = new LocaleUtil((String) req.getSession().getAttribute("btnvalue"));
         String login = (String) req.getSession().getAttribute("login");
         int userId = DaoFactory.getInstance().getUserDao().findUserByLogin(login).getId();
         int checkId = checkService.getLatestId()+1;
