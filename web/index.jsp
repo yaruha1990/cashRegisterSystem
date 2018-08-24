@@ -21,7 +21,7 @@
   </div>
 
     <div class="panel-heading" align="right">
-      <form action="/locale" method="get">
+      <form action="/app/locale" method="get">
         <button type="submit" class="btn btn-default" name="btn" value="UA"><img src="/images/ua.svg" width="20" height="20"></button>
         <button type="submit" id="en" class="btn btn-default" name="btn" value="EN"><img src="/images/gb.svg" width="20" height="20"></button>
       </form>

@@ -8,6 +8,7 @@ import ua.training.controller.command.merchant.CreateProduct;
 import ua.training.controller.command.merchant.ProductsList;
 import ua.training.controller.command.merchant.UpdateProductGet;
 import ua.training.controller.command.merchant.UpdateProductPost;
+import ua.training.controller.command.utils.Locale;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +39,7 @@ public class Router extends HttpServlet {
         commands.put("updateProductPost", new UpdateProductPost());
         commands.put("addProductToCheck", new AddProductToCheck());
         commands.put("saveCheck", new SaveCheck());
+        commands.put("locale", new Locale());
     }
 
     @Override

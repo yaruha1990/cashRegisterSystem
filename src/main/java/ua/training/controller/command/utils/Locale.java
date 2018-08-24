@@ -1,18 +1,16 @@
-package ua.training.controller.utils;
+package ua.training.controller.command.utils;
 
+import ua.training.controller.command.Command;
 import ua.training.model.utils.LocaleUtil;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/locale")
-public class LocaleServlet extends HttpServlet {
+public class Locale implements Command {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtil = new LocaleUtil(req.getParameter("btn"));
         req.getSession().setAttribute("loaded","true");
         req.getSession().setAttribute("btnvalue",req.getParameter("btn"));
@@ -60,6 +58,6 @@ public class LocaleServlet extends HttpServlet {
         req.getSession().setAttribute("historyBack",localeUtil.getText("historyBack"));
         req.getSession().setAttribute("saveCheck",localeUtil.getText("saveCheck"));
         req.getSession().setAttribute("checkCreated",localeUtil.getText("checkCreated"));
-        resp.sendRedirect("/");
+        return "redirect:/";
     }
 }
