@@ -1,9 +1,10 @@
-package ua.training.controller.command.merchant;
+package ua.training.controller.command.seniorcashier;
 
 import ua.training.controller.command.Command;
+import ua.training.model.dao.CheckDao;
 import ua.training.model.dao.DaoFactory;
-import ua.training.model.dao.ProductDao;
-import ua.training.model.entity.Product;
+import ua.training.model.entity.Check;
+import ua.training.model.entity.User;
 import ua.training.model.utils.LocaleUtil;
 
 import javax.servlet.ServletException;
@@ -12,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ProductsList implements Command {
+public class DeleteCheck implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
-        ProductDao productDao = DaoFactory.getInstance().getProductDao();
-        List<Product> products = productDao.findAll();
-        req.setAttribute("products",products);
-        return localeUtilURL.getText("productList");
+        CheckDao checkDao = DaoFactory.getInstance().getCheckDao();
+        checkDao.deleteCheck(Integer.valueOf(req.getParameter("checkId")));
+        List<Check> checks = checkDao.findAll();
+        req.setAttribute("checks",checks);
+        return localeUtilURL.getText("checkList");
     }
 }

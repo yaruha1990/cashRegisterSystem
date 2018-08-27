@@ -11,4 +11,5 @@ public interface CheckDao extends AutoCloseable {
     void updateCheck(Check check);
     void deleteCheck(int id);
     int getLatestCheckId();
+    void deleteProductFromCheck(int checkId, int productId);
 }

@@ -12,12 +12,12 @@ public class CheckService {
         check.getProducts().put(product,quantity);
     }
 
-    public double calculateCheckSum(Check check){
-        double checkSum = 0;
+    public int calculateCheckSum(Check check){
+        int checkSum = 0;
         for(Map.Entry<Product, Integer> entry : check.getProducts().entrySet()) {
             Product product = entry.getKey();
             Integer quantity = entry.getValue();
-            double productSum = product.getPrice()*quantity;
+            int productSum = product.getPrice()*quantity;
             checkSum+=productSum;
         }
         return checkSum;
@@ -26,4 +26,6 @@ public class CheckService {
     public int getLatestId(){
        return DaoFactory.getInstance().getCheckDao().getLatestCheckId();
     }
+
+
 }

@@ -17,10 +17,13 @@ public class RoleCommand implements Command {
             return "redirect:"+localeUtilURL.getText("admin");
         }
         if (userRole.equals("merchant")){
-            return "redirect:/app/products";
+            return "redirect:"+localeUtilURL.getText("merchant");
         }
         if (userRole.equals("cashier")){
             return "redirect:"+localeUtilURL.getText("cashier");
+        }
+        if (userRole.equals("seniorCashier")){
+            return "redirect:"+localeUtilURL.getText("seniorCashier");
         }
         return "/WEB-INF/404.jsp";
     }

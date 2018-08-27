@@ -8,6 +8,10 @@ import ua.training.controller.command.merchant.CreateProduct;
 import ua.training.controller.command.merchant.ProductsList;
 import ua.training.controller.command.merchant.UpdateProductGet;
 import ua.training.controller.command.merchant.UpdateProductPost;
+import ua.training.controller.command.seniorcashier.CheckDetails;
+import ua.training.controller.command.seniorcashier.CheckList;
+import ua.training.controller.command.seniorcashier.DeleteCheck;
+import ua.training.controller.command.seniorcashier.DeleteProductFromCheck;
 import ua.training.controller.command.utils.Locale;
 
 import javax.servlet.ServletException;
@@ -40,6 +44,10 @@ public class Router extends HttpServlet {
         commands.put("addProductToCheck", new AddProductToCheck());
         commands.put("saveCheck", new SaveCheck());
         commands.put("locale", new Locale());
+        commands.put("checkList", new CheckList());
+        commands.put("deleteCheck", new DeleteCheck());
+        commands.put("checkDetails", new CheckDetails());
+        commands.put("deleteProductFromCheck", new DeleteProductFromCheck());
     }
 
     @Override
@@ -54,6 +62,9 @@ public class Router extends HttpServlet {
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String path = req.getRequestURI().replaceAll(".*app/","");
+        if (req.getAttribute("path") != null){
+            path = (String)(req.getAttribute("path"));
+        }
         Command command = commands.getOrDefault(path,new IndexPage());
         String page = command.execute(req,resp);
         if(page.contains("redirect")){

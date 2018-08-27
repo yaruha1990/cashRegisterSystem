@@ -26,6 +26,6 @@ public class UpdateProductPost implements Command {
         productDao.updateProduct(product);
         List<Product> products = productDao.findAll();
         req.setAttribute("products",products);
-        return localeUtilURL.getText("merchant");
+        return localeUtilURL.getText("productList");
     }
 }

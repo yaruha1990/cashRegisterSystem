@@ -7,8 +7,9 @@ import java.util.Map;
 public class Check {
     private int id;
     private int userId;
+    private String userLogin;
     private Map<Product, Integer> products;
-    private double checkSum;
+    private int checkSum;
     private LocalDate date;
     private String dateTime;
 
@@ -16,7 +17,7 @@ public class Check {
         products = new HashMap<>();
     }
 
-    public Check(int id, int userId, Map<Product,Integer> products, double checkSum, LocalDate date, String dateTime) {
+    public Check(int id, int userId, Map<Product,Integer> products, int checkSum, LocalDate date, String dateTime) {
         this.id = id;
         this.userId = userId;
         this.products = products;
@@ -25,7 +26,7 @@ public class Check {
         this.dateTime = dateTime;
     }
 
-    public Check(Map<Product,Integer> products,int userId, double checkSum, LocalDate date, String dateTime) {
+    public Check(Map<Product,Integer> products,int userId, int checkSum, LocalDate date, String dateTime) {
         this.products = products;
         this.userId = userId;
         this.checkSum = checkSum;
@@ -56,6 +57,14 @@ public class Check {
         this.id = id;
     }
 
+    public String getUserLogin() {
+        return userLogin;
+    }
+
+    public void setUserLogin(String userLogin) {
+        this.userLogin = userLogin;
+    }
+
     public int getUserId() {
         return userId;
     }
@@ -72,11 +81,11 @@ public class Check {
         this.products = products;
     }
 
-    public double getCheckSum() {
+    public int getCheckSum() {
         return checkSum;
     }
 
-    public void setCheckSum(double checkSum) {
+    public void setCheckSum(int checkSum) {
         this.checkSum = checkSum;
     }
 
@@ -101,6 +110,7 @@ public class Check {
         return "Check{" +
                 "id=" + id +
                 ", userId=" + userId +
+                ", userLogin='" + userLogin + '\'' +
                 ", products=" + products +
                 ", checkSum=" + checkSum +
                 ", date=" + date +

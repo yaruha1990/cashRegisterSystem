@@ -25,6 +25,6 @@ public class CreateProduct implements Command {
         productDao.createProduct(product);
         List<Product> products = productDao.findAll();
         req.setAttribute("products",products);
-        return localeUtilURL.getText("merchant");
+        return localeUtilURL.getText("productList");
     }
 }

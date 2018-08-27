@@ -38,6 +38,8 @@ public class AddProductToCheck implements Command {
         check.setCheckSum(checkService.calculateCheckSum(check));
         check.setDate(LocalDate.now());
         check.setDateTime(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(new Date()));
+        int checkSum = checkService.calculateCheckSum(check);
+        req.getSession().setAttribute("checkSum",checkSum);
         req.getSession().setAttribute("check",check);
         return "redirect:/view/cashier/openCheck.jsp";
     }

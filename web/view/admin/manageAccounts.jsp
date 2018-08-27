@@ -77,7 +77,7 @@
                 <select name="role" id="role">
                     <option value="admin">${sessionScope.admin}</option>
                     <option value="cashier">${sessionScope.cashier}</option>
-                    <option value="senior cashier">${sessionScope.seniorCashier}</option>
+                    <option value="seniorCashier">${sessionScope.seniorCashier}</option>
                     <option value="merchant" selected>${sessionScope.merchant}</option>
                 </select>
                 <button class="btn-success" type="submit">${sessionScope.create}</button>

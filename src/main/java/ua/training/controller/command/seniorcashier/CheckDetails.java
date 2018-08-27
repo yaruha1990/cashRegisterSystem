@@ -1,4 +1,4 @@
-package ua.training.controller.command.cashier;
+package ua.training.controller.command.seniorcashier;
 
 import ua.training.controller.command.Command;
 import ua.training.model.dao.CheckDao;
@@ -12,19 +12,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class SaveCheck implements Command {
+public class CheckDetails implements Command {
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        LocaleUtil localeUtilURL = new LocaleUtil("url");
         CheckService checkService = new CheckService();
-        String login = (String) req.getSession().getAttribute("login");
-        int userId = DaoFactory.getInstance().getUserDao().findUserByLogin(login).getId();
-        int checkId = checkService.getLatestId();
-        Check check = (Check) req.getSession().getAttribute("check");
-        check.setUserId(userId);
-        check.setId(checkId);
         CheckDao checkDao = DaoFactory.getInstance().getCheckDao();
-        checkDao.createCheck(check);
-        req.getSession().removeAttribute("check");
-        return "/view/cashier/checkCreated.jsp";
+        Check check = checkDao.findCheckById(Integer.valueOf(req.getParameter("checkId")));
+        int checkSum = checkService.calculateCheckSum(check);
+        req.setAttribute("checkSum",checkSum);
+        req.setAttribute("check",check);
+        return localeUtilURL.getText("checkDetails");
     }
 }

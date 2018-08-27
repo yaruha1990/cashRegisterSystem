@@ -57,7 +57,7 @@
         <select name="role" id="role">
             <option value="admin">${sessionScope.admin}</option>
             <option value="cashier">${sessionScope.cashier}</option>
-            <option value="senior cashier">${sessionScope.seniorCashier}</option>
+            <option value="seniorCashier">${sessionScope.seniorCashier}</option>
             <option value="merchant" selected>${sessionScope.merchant}</option>
         </select>
         <input type="text" hidden name="userId" value="${requestScope.user.id}">

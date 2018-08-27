@@ -58,6 +58,25 @@ public class Locale implements Command {
         req.getSession().setAttribute("historyBack",localeUtil.getText("historyBack"));
         req.getSession().setAttribute("saveCheck",localeUtil.getText("saveCheck"));
         req.getSession().setAttribute("checkCreated",localeUtil.getText("checkCreated"));
+        req.getSession().setAttribute("checkSumAsLabel",localeUtil.getText("checkSumAsLabel"));
+        req.getSession().setAttribute("grn",localeUtil.getText("grn"));
+        req.getSession().setAttribute("pieces",localeUtil.getText("pieces"));
+        req.getSession().setAttribute("seniorCashierPage",localeUtil.getText("seniorCashierPage"));
+        req.getSession().setAttribute("checkListBtnName",localeUtil.getText("checkListBtnName"));
+        req.getSession().setAttribute("checkSumBtnName",localeUtil.getText("checkSumBtnName"));
+        req.getSession().setAttribute("checkDateBtnName",localeUtil.getText("checkDateBtnName"));
+        req.getSession().setAttribute("toSeniorCashierPage",localeUtil.getText("toSeniorCashierPage"));
+        req.getSession().setAttribute("checkListTblName",localeUtil.getText("checkListTblName"));
+        req.getSession().setAttribute("checkId",localeUtil.getText("checkId"));
+        req.getSession().setAttribute("createdBy",localeUtil.getText("createdBy"));
+        req.getSession().setAttribute("checkSumAsTblHeader",localeUtil.getText("checkSumAsTblHeader"));
+        req.getSession().setAttribute("createdAt",localeUtil.getText("createdAt"));
+        req.getSession().setAttribute("checkDetails",localeUtil.getText("checkDetails"));
+        req.getSession().setAttribute("show",localeUtil.getText("show"));
+        req.getSession().setAttribute("delete",localeUtil.getText("delete"));
+        req.getSession().setAttribute("deleteCheck",localeUtil.getText("deleteCheck"));
+        req.getSession().setAttribute("deleteProduct",localeUtil.getText("deleteProduct"));
+        req.getSession().setAttribute("productId",localeUtil.getText("productId"));
         return "redirect:/";
     }
 }

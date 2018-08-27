@@ -37,8 +37,8 @@
             <tr>
                 <th scope="col"><c:out value="${sessionScope.vendorCode}"/></th>
                 <th scope="col"><c:out value="${sessionScope.productName}"/></th>
-                <th scope="col"><c:out value="${sessionScope.quantity}"/></th>
-                <th scope="col"><c:out value="${sessionScope.price}"/></th>
+                <th scope="col"><c:out value="${sessionScope.quantity}, ${sessionScope.pieces}"/></th>
+                <th scope="col"><c:out value="${sessionScope.price}, ${sessionScope.grn}"/></th>
             </tr>
             <c:forEach var="item" items="${sessionScope.check.products}">
                 <tr>
@@ -48,8 +48,8 @@
                     <td><c:out value="${item.key.price}"></c:out></td>
                 </tr>
             </c:forEach>
-
         </table>
+        <label><c:out value="${sessionScope.checkSumAsLabel} ${sessionScope.checkSum} ${sessionScope.grn}"></c:out></label>
     </c:if>
 
 
