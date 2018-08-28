@@ -4,6 +4,7 @@ import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.UserDao;
 import ua.training.model.entity.User;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class UserIdentificationHelper {

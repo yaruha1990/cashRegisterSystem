@@ -8,6 +8,7 @@ import ua.training.model.utils.LocaleUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Connection;
 import java.util.List;
 
 public class CreateUser implements Command {

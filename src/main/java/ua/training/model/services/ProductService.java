@@ -4,6 +4,8 @@ import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
 import ua.training.model.entity.Product;
 
+import java.sql.Connection;
+
 public class ProductService {
 
     private ProductDao productDao;

@@ -4,6 +4,7 @@ import ua.training.model.dao.DaoFactory;
 import ua.training.model.entity.Check;
 import ua.training.model.entity.Product;
 
+import java.sql.Connection;
 import java.util.Map;
 
 public class CheckService {

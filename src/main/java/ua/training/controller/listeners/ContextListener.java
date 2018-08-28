@@ -1,5 +1,6 @@
 package ua.training.controller.listeners;
 
+import ua.training.model.dao.DaoFactory;
 import ua.training.model.utils.LocaleUtil;
 
 import javax.servlet.ServletContext;
@@ -7,6 +8,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSession;
+import java.sql.Connection;
 import java.util.HashMap;
 import java.util.Map;
 

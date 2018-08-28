@@ -13,19 +13,25 @@ import java.sql.SQLException;
 
 public class DaoFactoryImpl extends DaoFactory {
 
+    private Connection connection;
+
+    public DaoFactoryImpl() {
+        this.connection = getConnection();
+    }
+
     @Override
     public UserDaoImpl getUserDao(){
-        return new UserDaoImpl(getConnection());
+        return new UserDaoImpl(connection);
     }
 
     @Override
     public ProductDao getProductDao() {
-        return new ProductDaoImpl(getConnection());
+        return new ProductDaoImpl(connection);
     }
 
     @Override
     public CheckDao getCheckDao() {
-        return new CheckDaoImpl(getConnection());
+        return new CheckDaoImpl(connection);
     }
 
     private Connection getConnection(){

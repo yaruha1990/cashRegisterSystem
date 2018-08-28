@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 
 public class DeleteCheck implements Command {
@@ -19,7 +20,13 @@ public class DeleteCheck implements Command {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
         CheckDao checkDao = DaoFactory.getInstance().getCheckDao();
         checkDao.deleteCheck(Integer.valueOf(req.getParameter("checkId")));
-        List<Check> checks = checkDao.findAll();
+        int page = 1;
+        int recordsPerPage = 2;
+        int numberOfRecords = checkDao.getNumberOfRecords();
+        int numberOfPages = (int) Math.ceil(numberOfRecords * 1.0 / recordsPerPage);
+        List<Check> checks = checkDao.findAll(recordsPerPage,(page-1)*recordsPerPage);
+        req.setAttribute("numberOfPages", numberOfPages);
+        req.setAttribute("currentPage", page);
         req.setAttribute("checks",checks);
         return localeUtilURL.getText("checkList");
     }

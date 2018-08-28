@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.sql.Connection;
 
 @WebFilter("/app/addProductToCheck")
 public class CheckCreationFilter implements Filter {

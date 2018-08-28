@@ -99,7 +99,17 @@ public class CheckDaoImpl implements CheckDao {
             PreparedStatement ps = connection.prepareStatement(
                     "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id");
             ResultSet resultSet = ps.executeQuery();
-            while (resultSet.next()) {
+            checks = getCheckFromResultSet(resultSet);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return checks;
+    }
+
+    private List<Check> getCheckFromResultSet(ResultSet resultSet){
+        List<Check> checks = new ArrayList<>();
+        try {
+            while (resultSet.next()){
                 Check check = new Check();
                 check.setId(resultSet.getInt("id"));
                 check.setUserLogin(resultSet.getString("login"));
@@ -107,6 +117,37 @@ public class CheckDaoImpl implements CheckDao {
                 check.setDateTime(resultSet.getString("date_time"));
                 checks.add(check);
             }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return checks;
+    }
+
+    @Override
+    public int getNumberOfRecords() {
+        int numberOfRecords = 0;
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select count(1) from `check`;");
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()){
+                numberOfRecords = rs.getInt("count(1)");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return numberOfRecords;
+    }
+
+    @Override
+    public List<Check> findAll(int limit, int offset) {
+        List<Check> checks = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(
+                    "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id limit ? offset ?");
+            ps.setInt(1,limit);
+            ps.setInt(2,offset);
+            ResultSet resultSet = ps.executeQuery();
+            checks = getCheckFromResultSet(resultSet);
         }catch (SQLException e){
             e.printStackTrace();
         }

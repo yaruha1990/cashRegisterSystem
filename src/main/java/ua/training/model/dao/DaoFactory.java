@@ -3,6 +3,7 @@ package ua.training.model.dao;
 import ua.training.model.dao.impl.DaoFactoryImpl;
 
 public abstract class DaoFactory {
+
     private static DaoFactory daoFactory;
 
     public abstract UserDao getUserDao();
