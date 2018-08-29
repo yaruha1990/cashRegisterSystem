@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: yaruh
-  Date: 16.08.2018
-  Time: 13:30
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
@@ -61,7 +54,6 @@
             <option value="merchant" selected>${sessionScope.merchant}</option>
         </select>
         <input type="text" hidden name="userId" value="${requestScope.user.id}">
-        <input type="text" hidden name="userPassword" value="${requestScope.user.password}">
         <button type="submit" class="btn-success">${sessionScope.updateAsBtnName}</button>
     </form>
     </div>

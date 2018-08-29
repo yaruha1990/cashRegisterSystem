@@ -1,5 +1,6 @@
 package ua.training.controller.command.seniorcashier;
 
+import org.apache.log4j.Logger;
 import ua.training.controller.command.Command;
 import ua.training.model.dao.CheckDao;
 import ua.training.model.dao.DaoFactory;
@@ -15,10 +16,13 @@ import java.sql.Connection;
 import java.util.List;
 
 public class DeleteCheck implements Command {
+    final static Logger logger = Logger.getLogger(DeleteCheck.class);
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
         CheckDao checkDao = DaoFactory.getInstance().getCheckDao();
+        logger.info("User "+req.getSession().getAttribute("login")+" started to delete check");
         checkDao.deleteCheck(Integer.valueOf(req.getParameter("checkId")));
         int page = 1;
         int recordsPerPage = 2;

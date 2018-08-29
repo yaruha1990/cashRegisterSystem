@@ -1,5 +1,6 @@
 package ua.training.controller.command.merchant;
 
+import org.apache.log4j.Logger;
 import ua.training.controller.command.Command;
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
@@ -14,6 +15,8 @@ import java.sql.Connection;
 import java.util.List;
 
 public class UpdateProductPost implements Command {
+    final static Logger logger = Logger.getLogger(UpdateProductPost.class);
+
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
@@ -24,6 +27,8 @@ public class UpdateProductPost implements Command {
         int price = Integer.parseInt(req.getParameter("price"));
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         Product product = new Product(id,vendorCode,productName,price,quantity);
+        logger.info("Merchant "+req.getSession().getAttribute("login")+" started to update product");
+        logger.info("Product's new credentials are "+id+" "+vendorCode+" "+productName+" "+price+" "+quantity);
         productDao.updateProduct(product);
         List<Product> products = productDao.findAll();
         req.setAttribute("products",products);

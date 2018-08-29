@@ -1,18 +1,17 @@
 package ua.training.model.dao.impl;
 
+import org.apache.log4j.Logger;
 import ua.training.model.dao.CheckDao;
 import ua.training.model.entity.Check;
 import ua.training.model.entity.Product;
-import ua.training.model.services.CheckService;
-
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
 public class CheckDaoImpl implements CheckDao {
+    final static Logger logger = Logger.getLogger(CheckDaoImpl.class);
 
     private Connection connection;
 
@@ -96,10 +95,12 @@ public class CheckDaoImpl implements CheckDao {
             preparedStatement.executeBatch();
             ps.executeBatch();
             connection.commit();
+            logger.info("Check with id "+check.getId()+" has been created successfully");
         } catch (SQLException e) {
             e.printStackTrace();
             try {
                 connection.rollback();
+                logger.error("Check creation transaction has been canceled");
             }catch (SQLException e1){
                 e1.printStackTrace();
             }
@@ -229,6 +230,7 @@ public class CheckDaoImpl implements CheckDao {
             ps.setInt(1,id);
             ps.execute();
             connection.commit();
+            logger.info("Check with id "+id+" has been deleted");
         } catch (SQLException e) {
             e.printStackTrace();
             try {
@@ -277,6 +279,7 @@ public class CheckDaoImpl implements CheckDao {
             ps.setInt(2,checkId);
             ps.executeUpdate();
             connection.commit();
+            logger.info("Product with id "+productId+" has been deleted from check id "+checkId+" in the amount of "+productQuantity+" pieces");
         } catch (SQLException e) {
             e.printStackTrace();
             try {

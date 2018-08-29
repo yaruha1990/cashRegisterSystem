@@ -1,5 +1,6 @@
 package ua.training.model.dao.impl;
 
+import org.apache.log4j.Logger;
 import ua.training.model.dao.ProductDao;
 import ua.training.model.entity.Product;
 import ua.training.model.entity.User;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
+    final static Logger logger = Logger.getLogger(ProductDaoImpl.class);
 
     private Connection connection;
 
@@ -26,7 +28,9 @@ public class ProductDaoImpl implements ProductDao {
             ps.setInt(3,product.getPrice());
             ps.setInt(4,product.getQuantityInStock());
             ps.execute();
+            logger.info("Product with vendor code "+product.getVendorCode()+" has been created successfully");
         } catch (SQLException e) {
+            logger.error("Attempt to create duplicate of product with vendor code "+product.getVendorCode());
             throw new RuntimeException("Such vendor code already exists");
         }
     }
@@ -97,21 +101,12 @@ public class ProductDaoImpl implements ProductDao {
             ps.setInt(4,product.getQuantityInStock());
             ps.setInt(5,product.getId());
             ps.executeUpdate();
+            logger.info("Product "+product.getVendorCode()+" has been updated");
         }catch (SQLException e){
             throw new RuntimeException("Such vendor code already exists");
         }
     }
 
-    @Override
-    public void deleteProduct(int id) {
-        try(PreparedStatement ps = connection.prepareStatement("delete from product where id=?")) {
-            ps.setInt(1,id);
-            ps.execute();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
-    }
     @Override
     public void close() throws Exception {
         try {

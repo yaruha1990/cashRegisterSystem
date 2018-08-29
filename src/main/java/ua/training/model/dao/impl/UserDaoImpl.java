@@ -1,5 +1,6 @@
 package ua.training.model.dao.impl;
 
+import org.apache.log4j.Logger;
 import ua.training.model.dao.UserDao;
 import ua.training.model.entity.User;
 import ua.training.model.services.PasswordMD5Encoder;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDao {
+    final static Logger logger = Logger.getLogger(UserDaoImpl.class);
 
     private Connection connection;
     private PasswordMD5Encoder passwordMD5Encoder = new PasswordMD5Encoder();
@@ -28,7 +30,9 @@ public class UserDaoImpl implements UserDao {
             ps.setString(2 ,passwordMD5Encoder.getMD5EncodedPassword(user.getPassword()));
             ps.setString(3,user.getRole());
             ps.execute();
+            logger.info("User with login "+user.getLogin()+" has been created successfully");
         } catch (SQLException e) {
+            logger.error("Attempt to create duplicate of user "+user.getLogin());
             throw new RuntimeException("Such login is already taken");
         }
     }
@@ -97,6 +101,7 @@ public class UserDaoImpl implements UserDao {
             ps.setString(3,user.getRole());
             ps.setInt(4,user.getId());
             ps.executeUpdate();
+            logger.info("User "+user.getLogin()+" has been updated");
         }catch (SQLException e){
             throw new RuntimeException("Such login is already taken");
         }
@@ -107,6 +112,7 @@ public class UserDaoImpl implements UserDao {
         try(PreparedStatement ps = connection.prepareStatement("delete from user where id=?")) {
             ps.setInt(1,id);
             ps.execute();
+            logger.info("User with id "+id+" has been deleted");
         }catch (SQLException e){
             e.printStackTrace();
         }

@@ -1,5 +1,6 @@
 package ua.training.controller.command.seniorcashier;
 
+import org.apache.log4j.Logger;
 import ua.training.controller.command.Command;
 import ua.training.model.dao.CheckDao;
 import ua.training.model.dao.DaoFactory;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.sql.Connection;
 
 public class DeleteProductFromCheck implements Command {
+    final static Logger logger = Logger.getLogger(DeleteProductFromCheck.class);
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");
@@ -21,6 +23,7 @@ public class DeleteProductFromCheck implements Command {
         int checkId = Integer.valueOf(req.getParameter("checkId"));
         int productId = Integer.valueOf(req.getParameter("productId"));
         CheckDao checkDao = DaoFactory.getInstance().getCheckDao();
+        logger.info("User "+req.getSession().getAttribute("login")+" started to remove product from check");
         checkDao.deleteProductFromCheck(checkId, productId);
         Check check = checkDao.findCheckById(checkId);
         int checkSum = checkService.calculateCheckSum(check);

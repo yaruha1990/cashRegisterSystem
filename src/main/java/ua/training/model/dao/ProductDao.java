@@ -11,5 +11,4 @@ public interface ProductDao extends AutoCloseable {
     Product findProductByVendorCode(String vendorCode);
     List<Product> findAll();
     void updateProduct(Product product);
-    void deleteProduct(int id);
 }

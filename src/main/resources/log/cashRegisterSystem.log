@@ -1,0 +1,16 @@
+2018-08-29 19:00:06 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-29 19:00:10 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 19:00:14 INFO  CheckDetails:25 - User kira started to view details of check with id 2
+2018-08-29 19:00:43 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 19:00:45 INFO  CheckDetails:25 - User kira started to view details of check with id 14
+2018-08-29 19:00:58 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 19:01:00 INFO  CheckDetails:25 - User kira started to view details of check with id 9
+2018-08-29 19:01:03 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 19:01:04 INFO  CheckDetails:25 - User kira started to view details of check with id 6
+2018-08-29 19:01:21 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-29 19:01:21 INFO  CheckDaoImpl:282 - Product with id 2 has been deleted from check id 6 in the amount of 5 pieces
+2018-08-29 19:01:38 INFO  Logout:15 - User kira has logged out
+2018-08-29 19:02:10 INFO  RoleCommand:23 - User taras has role merchant is logged in
+2018-08-29 19:02:37 INFO  UpdateProductPost:30 - Merchant taras started to update product
+2018-08-29 19:02:37 INFO  UpdateProductPost:31 - Product's new credentials are 1 10100001 помідор 10 50
+2018-08-29 19:02:37 INFO  ProductDaoImpl:104 - Product 10100001 has been updated
