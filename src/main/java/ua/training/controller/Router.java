@@ -8,10 +8,7 @@ import ua.training.controller.command.merchant.CreateProduct;
 import ua.training.controller.command.merchant.ProductsList;
 import ua.training.controller.command.merchant.UpdateProductGet;
 import ua.training.controller.command.merchant.UpdateProductPost;
-import ua.training.controller.command.seniorcashier.CheckDetails;
-import ua.training.controller.command.seniorcashier.CheckList;
-import ua.training.controller.command.seniorcashier.DeleteCheck;
-import ua.training.controller.command.seniorcashier.DeleteProductFromCheck;
+import ua.training.controller.command.seniorcashier.*;
 import ua.training.controller.command.utils.Locale;
 
 import javax.servlet.ServletException;
@@ -48,6 +45,8 @@ public class Router extends HttpServlet {
         commands.put("deleteCheck", new DeleteCheck());
         commands.put("checkDetails", new CheckDetails());
         commands.put("deleteProductFromCheck", new DeleteProductFromCheck());
+        commands.put("checkDateReport", new CheckDateReport());
+        commands.put("checkSumReport", new CheckSumReport());
     }
 
     @Override

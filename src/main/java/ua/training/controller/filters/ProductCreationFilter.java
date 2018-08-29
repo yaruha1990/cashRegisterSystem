@@ -50,7 +50,7 @@ public class ProductCreationFilter implements Filter {
             servletResponse.getWriter().write(localeUtil.getText("emptyQuantity"));
             return;
         }
-        if (!regExp.isValidInput(RegExp.LETTERS_DIGITS_REGEXP,vendorCode)){
+        if (!regExp.isValidInput(RegExp.VENDOR_CODE_REGEXP,vendorCode)){
             servletResponse.getWriter().write(localeUtil.getText("invalidCharsVendorCode"));
             return;
         }

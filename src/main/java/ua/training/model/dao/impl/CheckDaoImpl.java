@@ -6,6 +6,7 @@ import ua.training.model.entity.Product;
 import ua.training.model.services.CheckService;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,6 +31,38 @@ public class CheckDaoImpl implements CheckDao {
             e.printStackTrace();
         }
         return 0;
+    }
+
+    @Override
+    public List<Check> findAllSumReport(int from, int to) {
+        List<Check> checks = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(
+                    "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_sum between ? and ?");
+            ps.setInt(1,from);
+            ps.setInt(2,to);
+            ResultSet resultSet = ps.executeQuery();
+            checks = getCheckFromResultSet(resultSet);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return checks;
+    }
+
+    @Override
+    public List<Check> findAll(LocalDate from, LocalDate to) {
+        List<Check> checks = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(
+                    "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_date between ? and ?");
+            ps.setDate(1,Date.valueOf(from));
+            ps.setDate(2,Date.valueOf(to));
+            ResultSet resultSet = ps.executeQuery();
+            checks = getCheckFromResultSet(resultSet);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return checks;
     }
 
     @Override
@@ -171,11 +204,6 @@ public class CheckDaoImpl implements CheckDao {
     }
 
     @Override
-    public void updateCheck(Check check) {
-
-    }
-
-    @Override
     public void deleteCheck(int id) {
         try {
             connection.setAutoCommit(false);
@@ -262,6 +290,10 @@ public class CheckDaoImpl implements CheckDao {
 
     @Override
     public void close() throws Exception {
-
+        try {
+            connection.close();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

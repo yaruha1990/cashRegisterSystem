@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: yaruh
-  Date: 2018-08-27
-  Time: 3:30 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -29,7 +22,10 @@
 
 <c:if test="${sessionScope.role == 'seniorCashier'}">
     <div style="padding: 20px">
-    <a href="/view/seniorcashier/seniorcashier.jsp">${sessionScope.toSeniorCashierPage}</a>
+        <a href="/view/seniorcashier/seniorcashier.jsp">${sessionScope.toSeniorCashierPage}</a>
+    </div>
+    <div style="padding: 20px;">
+        <button type="button" onclick="history.back()" class="btn btn-success">${sessionScope.back}</button>
     </div>
 
         <table class="table">

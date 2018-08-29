@@ -64,7 +64,7 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination">
             <c:if test="${requestScope.currentPage > 1}">
-                <li class="page-item"><a class="page-link" href="/app/checkList?page=${requestScope.currentPage - 1}">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="/app/checkList?page=${requestScope.currentPage - 1}">${sessionScope.previousPage}</a></li>
             </c:if>
             <c:forEach begin="1" end="${numberOfPages}" var="i">
                     <c:choose>
@@ -77,7 +77,7 @@
                     </c:choose>
             </c:forEach>
             <c:if test="${currentPage < numberOfPages}">
-                <li class="page-item"><a class="page-link" href="/app/checkList?page=${currentPage + 1}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="/app/checkList?page=${currentPage + 1}">${sessionScope.nextPage}</a></li>
             </c:if>
         </ul>
     </nav>

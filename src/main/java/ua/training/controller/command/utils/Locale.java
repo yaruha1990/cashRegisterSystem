@@ -77,6 +77,13 @@ public class Locale implements Command {
         req.getSession().setAttribute("deleteCheck",localeUtil.getText("deleteCheck"));
         req.getSession().setAttribute("deleteProduct",localeUtil.getText("deleteProduct"));
         req.getSession().setAttribute("productId",localeUtil.getText("productId"));
+        req.getSession().setAttribute("previousPage",localeUtil.getText("previousPage"));
+        req.getSession().setAttribute("nextPage",localeUtil.getText("nextPage"));
+        req.getSession().setAttribute("checkDateFromAsLbl",localeUtil.getText("checkDateFromAsLbl"));
+        req.getSession().setAttribute("checkDateToAsLbl",localeUtil.getText("checkDateToAsLbl"));
+        req.getSession().setAttribute("getReportAsBtn",localeUtil.getText("getReportAsBtn"));
+        req.getSession().setAttribute("checkSumFromAsLbl",localeUtil.getText("checkSumFromAsLbl"));
+        req.getSession().setAttribute("checkSumToAsLbl",localeUtil.getText("checkSumToAsLbl"));
         return "redirect:/";
     }
 }
