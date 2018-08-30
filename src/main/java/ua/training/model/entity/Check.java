@@ -34,21 +34,6 @@ public class Check {
         this.dateTime = dateTime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Check check = (Check) o;
-
-        return id == check.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
-
     public int getId() {
         return id;
     }

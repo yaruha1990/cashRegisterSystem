@@ -13,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class CheckList implements Command {
-
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LocaleUtil localeUtilURL = new LocaleUtil("url");

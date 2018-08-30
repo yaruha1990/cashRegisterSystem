@@ -2,6 +2,7 @@ package ua.training.model.services;
 
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.ProductDao;
+import ua.training.model.dao.impl.ProductDaoImpl;
 import ua.training.model.entity.Product;
 
 import java.sql.Connection;

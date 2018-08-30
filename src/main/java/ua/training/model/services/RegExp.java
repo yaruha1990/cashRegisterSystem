@@ -1,5 +1,6 @@
 package ua.training.model.services;
 
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,4 +14,5 @@ public class RegExp {
         Matcher matcher = pattern.matcher(checkedString);
         return matcher.matches();
     }
+
 }
