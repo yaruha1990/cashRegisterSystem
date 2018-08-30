@@ -14,3 +14,45 @@
 2018-08-29 19:02:37 INFO  UpdateProductPost:30 - Merchant taras started to update product
 2018-08-29 19:02:37 INFO  UpdateProductPost:31 - Product's new credentials are 1 10100001 помідор 10 50
 2018-08-29 19:02:37 INFO  ProductDaoImpl:104 - Product 10100001 has been updated
+2018-08-29 20:09:19 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-29 20:09:51 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:10:02 INFO  CheckDetails:25 - User kira started to view details of check with id 2
+2018-08-29 20:10:18 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:10:19 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:10:21 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:10:22 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:10:29 INFO  CheckSumReport:24 - User kira started to get check sum report with checkSumFrom=0 checkSumTo=100
+2018-08-29 20:10:36 INFO  CheckSumReport:24 - User kira started to get check sum report with checkSumFrom=0 checkSumTo=50
+2018-08-29 20:10:42 INFO  CheckDetails:25 - User kira started to view details of check with id 2
+2018-08-29 20:10:51 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-29 20:10:51 INFO  CheckDaoImpl:282 - Product with id 2 has been deleted from check id 2 in the amount of 5 pieces
+2018-08-29 20:11:20 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:11:24 INFO  CheckDetails:25 - User kira started to view details of check with id 2
+2018-08-29 20:11:34 INFO  CheckDateReport:28 - User kira started to get check sum report with checkDateFrom=2018-08-01 checkDateTo=2018-08-17
+2018-08-29 20:11:41 INFO  CheckDateReport:28 - User kira started to get check sum report with checkDateFrom=2018-08-02 checkDateTo=2018-08-30
+2018-08-29 20:11:44 INFO  CheckDetails:25 - User kira started to view details of check with id 7
+2018-08-29 20:11:56 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-29 20:11:56 INFO  CheckDaoImpl:282 - Product with id 3 has been deleted from check id 7 in the amount of 10 pieces
+2018-08-29 20:12:00 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:12:02 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:12:06 INFO  DeleteCheck:25 - User kira started to delete check
+2018-08-29 20:12:07 INFO  CheckDaoImpl:233 - Check with id 7 has been deleted
+2018-08-29 20:12:08 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-29 20:12:42 INFO  Logout:15 - User kira has logged out
+2018-08-30 07:09:36 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-30 07:09:50 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:09:53 INFO  CheckDetails:25 - User kira started to view details of check with id 2
+2018-08-30 07:10:05 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:10:07 INFO  DeleteCheck:25 - User kira started to delete check
+2018-08-30 07:10:07 INFO  CheckDaoImpl:233 - Check with id 2 has been deleted
+2018-08-30 07:10:09 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:10:12 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:10:13 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:10:14 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 07:10:24 INFO  CheckSumReport:24 - User kira started to get check sum report with checkSumFrom=0 checkSumTo=100
+2018-08-30 07:10:27 INFO  CheckDetails:25 - User kira started to view details of check with id 8
+2018-08-30 07:10:30 INFO  Logout:15 - User kira has logged out
+2018-08-30 08:18:35 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-30 08:18:37 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 08:18:40 INFO  CheckList:36 - User kira started to view list of checks
+2018-08-30 08:19:14 INFO  Logout:15 - User kira has logged out

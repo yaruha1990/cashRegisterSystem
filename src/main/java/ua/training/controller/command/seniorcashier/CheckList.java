@@ -1,6 +1,5 @@
 package ua.training.controller.command.seniorcashier;
 
-import org.apache.log4j.Logger;
 import ua.training.controller.command.Command;
 import ua.training.model.dao.CheckDao;
 import ua.training.model.dao.DaoFactory;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class CheckList implements Command {
-    final static Logger logger = Logger.getLogger(CheckList.class);
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,7 +31,6 @@ public class CheckList implements Command {
         int numberOfPages = (int) Math.ceil(numberOfRecords * 1.0 / recordsPerPage);
         if (page < 1) page = 1;
         if (page > numberOfPages) page = numberOfPages;
-        logger.info("User "+req.getSession().getAttribute("login")+" started to view list of checks");
         List<Check> checks = checkDao.findAll(recordsPerPage,(page-1)*recordsPerPage);
         req.setAttribute("numberOfPages", numberOfPages);
         req.setAttribute("currentPage", page);
