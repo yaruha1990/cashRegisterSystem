@@ -1,4 +1,7 @@
+# cashRegisterSystem
+
 Опис проекту
+
 Система Касовий Апарат. Касир має можливість відкрити чек, додати обрані товари по коду із бази даних
 (петрушка = 234, хліб = 222) або по назві товару, вказати кількість товарів або вагу. Закрити чек.
 Старший касир має можливість відмінити чек, відмінити один товар в чеку і повернути гроші покупцеві. Зробити X та Z звіти.
@@ -10,7 +13,7 @@
 3) Встановити maven, tomcat сервер 7,8 або 9 версії і позаводити змінні середовища **MAVEN_HOME** та **CATALINA_HOME**
 4) Додати наступні рядки у файл context.xml сервера tomcat, який повинен знаходиться в CATALINA_HOME\conf
 Це реалізація DBCP 	   
-<Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+< Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
       maxTotal="100" maxIdle="30" maxWaitMillis="10000" removeAbandonedOnBorrow="true" 
       removeAbandonedOnMaintenance="true" removeAbandonedTimeout="60" logAbandoned="true"
       username="root" password="1234" driverClassName="com.mysql.cj.jdbc.Driver"
