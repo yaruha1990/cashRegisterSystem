@@ -102,3 +102,32 @@
 2018-08-30 18:16:35 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
 2018-08-30 18:16:35 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
 2018-08-30 18:16:35 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-30 18:27:27 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-30 18:27:27 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-30 18:27:27 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-30 18:27:27 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-30 18:28:53 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-30 18:28:53 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-30 18:28:54 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-30 18:28:54 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-30 18:29:22 INFO  RoleCommand:23 - User taras has role merchant is logged in
+2018-08-30 18:29:40 INFO  UpdateProductPost:30 - Merchant taras started to update product
+2018-08-30 18:29:40 INFO  UpdateProductPost:31 - Product's new credentials are 1 10100001 помідор 10 50
+2018-08-30 18:29:40 INFO  ProductDaoImpl:104 - Product 10100001 has been updated
+2018-08-31 12:26:36 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 12:26:36 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 12:26:36 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 12:26:36 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 12:27:00 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 12:27:00 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 12:27:00 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 12:27:00 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 15:32:38 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-31 15:32:47 INFO  Logout:15 - User kira has logged out
+2018-08-31 15:33:27 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-31 15:33:36 INFO  CheckDetails:25 - User kira started to view details of check with id 3
+2018-08-31 15:33:42 INFO  Logout:15 - User kira has logged out
+2018-08-31 15:33:45 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 15:33:50 INFO  Logout:15 - User admin has logged out
+2018-08-31 15:35:19 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 15:35:29 INFO  Logout:15 - User admin has logged out
