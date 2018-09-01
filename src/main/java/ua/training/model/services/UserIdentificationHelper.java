@@ -2,10 +2,7 @@ package ua.training.model.services;
 
 import ua.training.model.dao.DaoFactory;
 import ua.training.model.dao.UserDao;
-import ua.training.model.dao.impl.UserDaoImpl;
 import ua.training.model.entity.User;
-
-import java.sql.Connection;
 import java.util.List;
 
 public class UserIdentificationHelper {
@@ -14,10 +11,6 @@ public class UserIdentificationHelper {
 
     public UserIdentificationHelper(){
         userDao = DaoFactory.getInstance().getUserDao();
-    }
-
-    public UserIdentificationHelper(UserDaoImpl userDao){
-        this.userDao = userDao;
     }
 
     /**

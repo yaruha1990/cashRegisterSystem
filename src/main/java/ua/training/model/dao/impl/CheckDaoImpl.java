@@ -11,21 +11,24 @@ import java.util.List;
 import java.util.Map;
 
 public class CheckDaoImpl implements CheckDao {
+
     final static Logger logger = Logger.getLogger(CheckDaoImpl.class);
-
-    private Connection connection;
-
-    public CheckDaoImpl(Connection connection) {
-        this.connection = connection;
-    }
+    private ConnectionPool connectionPool = ConnectionPool.getInstance();
 
     @Override
     public int getLatestCheckId() {
-        try {
+        try{
+            Connection connection = connectionPool.getConnection();
             Statement statement = connection.createStatement();
             statement.executeQuery("SET @@SESSION.information_schema_stats_expiry = 0");
             ResultSet resultSet = statement.executeQuery("SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'cashregister' AND TABLE_NAME = 'check';");
-            while (resultSet.next()) return resultSet.getInt("AUTO_INCREMENT");
+            int autoIncrement = -1;
+            while (resultSet.next()) {
+                autoIncrement = resultSet.getInt("AUTO_INCREMENT");
+            }
+            if (autoIncrement == 0) autoIncrement = 1;
+            connectionPool.closeConnection(connection);
+            return autoIncrement;
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -35,13 +38,14 @@ public class CheckDaoImpl implements CheckDao {
     @Override
     public List<Check> findAllSumReport(int from, int to) {
         List<Check> checks = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement(
-                    "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_sum between ? and ?");
+        try{
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement("select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_sum between ? and ?");
             ps.setInt(1,from);
             ps.setInt(2,to);
             ResultSet resultSet = ps.executeQuery();
             checks = getCheckFromResultSet(resultSet);
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -51,13 +55,14 @@ public class CheckDaoImpl implements CheckDao {
     @Override
     public List<Check> findAll(LocalDate from, LocalDate to) {
         List<Check> checks = new ArrayList<>();
-        try {
-            PreparedStatement ps = connection.prepareStatement(
-                    "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_date between ? and ?");
+        try{
+            Connection connection = connectionPool.getConnection();
+            PreparedStatement ps = connection.prepareStatement("select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id where check_date between ? and ?");
             ps.setDate(1,Date.valueOf(from));
             ps.setDate(2,Date.valueOf(to));
             ResultSet resultSet = ps.executeQuery();
             checks = getCheckFromResultSet(resultSet);
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -66,10 +71,11 @@ public class CheckDaoImpl implements CheckDao {
 
     @Override
     public void createCheck(Check check) {
+        Connection connection = null;
         try {
+            connection = connectionPool.getConnection();
             connection.setAutoCommit(false);
-            PreparedStatement ps = connection.prepareStatement(
-        "INSERT INTO `check` (user_id, check_sum, check_date, date_time ) VALUES (?, ?, ?, ?)");
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO `check` (user_id, check_sum, check_date, date_time ) VALUES (?, ?, ?, ?)");
             ps.setInt(1 , check.getUserId());
             ps.setInt(2 ,check.getCheckSum());
             ps.setDate(3, Date.valueOf(check.getDate()));
@@ -105,12 +111,14 @@ public class CheckDaoImpl implements CheckDao {
                 e1.printStackTrace();
             }
         }
+        connectionPool.closeConnection(connection);
     }
 
     @Override
     public Check findCheckById(int id) {
         Check check = new Check();
-        try {
+        try{
+            Connection connection = connectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(
                     "select check_id,user_id,login,product_id,vendor_code,product_name,product_quantity,price," +
                             "check_sum,check_date,date_time from checks_products join `check` on check_id=`check`.id " +
@@ -120,6 +128,7 @@ public class CheckDaoImpl implements CheckDao {
             while (resultSet.next()){
                 check = extractFromResultSet(check,resultSet);
             }
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -129,11 +138,13 @@ public class CheckDaoImpl implements CheckDao {
     @Override
     public List<Check> findAll() {
         List<Check> checks = new ArrayList<>();
-        try {
+        try{
+            Connection connection = connectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(
                     "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id");
             ResultSet resultSet = ps.executeQuery();
             checks = getCheckFromResultSet(resultSet);
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -160,12 +171,14 @@ public class CheckDaoImpl implements CheckDao {
     @Override
     public int getNumberOfRecords() {
         int numberOfRecords = 0;
-        try {
+        try{
+            Connection connection = connectionPool.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("select count(1) from `check`;");
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 numberOfRecords = rs.getInt("count(1)");
             }
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -175,13 +188,15 @@ public class CheckDaoImpl implements CheckDao {
     @Override
     public List<Check> findAll(int limit, int offset) {
         List<Check> checks = new ArrayList<>();
-        try {
+        try{
+            Connection connection = connectionPool.getConnection();
             PreparedStatement ps = connection.prepareStatement(
                     "select `check`.id, login, check_sum, date_time from `check` join user on user_id=user.id limit ? offset ?");
             ps.setInt(1,limit);
             ps.setInt(2,offset);
             ResultSet resultSet = ps.executeQuery();
             checks = getCheckFromResultSet(resultSet);
+            connectionPool.closeConnection(connection);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -206,7 +221,9 @@ public class CheckDaoImpl implements CheckDao {
 
     @Override
     public void deleteCheck(int id) {
+        Connection connection = null;
         try {
+            connection = connectionPool.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement ps = connection.prepareStatement("delete from `check` where id=?");
             ps.setInt(1 , id);
@@ -239,11 +256,14 @@ public class CheckDaoImpl implements CheckDao {
                 e1.printStackTrace();
             }
         }
+        connectionPool.closeConnection(connection);
     }
 
     @Override
     public void deleteProductFromCheck(int checkId, int productId) {
+        Connection connection = null;
         try {
+            connection = connectionPool.getConnection();
             connection.setAutoCommit(false);
             PreparedStatement ps = connection.prepareStatement("select product_quantity from checks_products " +
                     "where check_id=? and product_id=?");
@@ -288,15 +308,7 @@ public class CheckDaoImpl implements CheckDao {
                 e1.printStackTrace();
             }
         }
-
+        connectionPool.closeConnection(connection);
     }
 
-    @Override
-    public void close() throws Exception {
-        try {
-            connection.close();
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
 }

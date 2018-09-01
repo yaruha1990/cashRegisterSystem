@@ -5,7 +5,7 @@ import ua.training.model.entity.User;
 
 import java.util.List;
 
-public interface ProductDao extends AutoCloseable {
+public interface ProductDao {
     void createProduct(Product product);
     Product findProductById(int id);
     Product findProductByVendorCode(String vendorCode);

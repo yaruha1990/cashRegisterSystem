@@ -6,7 +6,7 @@ import ua.training.model.entity.Check;
 import java.time.LocalDate;
 import java.util.List;
 
-public interface CheckDao extends AutoCloseable {
+public interface CheckDao {
     void createCheck(Check check);
     Check findCheckById(int id);
     List<Check> findAll();

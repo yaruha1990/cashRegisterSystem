@@ -13,35 +13,19 @@ import java.sql.SQLException;
 
 public class DaoFactoryImpl extends DaoFactory {
 
-    private Connection connection;
-
-    public DaoFactoryImpl() {
-        this.connection = getConnection();
-    }
-
     @Override
     public UserDaoImpl getUserDao(){
-        return new UserDaoImpl(connection);
+        return new UserDaoImpl();
     }
 
     @Override
     public ProductDao getProductDao() {
-        return new ProductDaoImpl(connection);
+        return new ProductDaoImpl();
     }
 
     @Override
     public CheckDao getCheckDao() {
-        return new CheckDaoImpl(connection);
+        return new CheckDaoImpl();
     }
 
-    private Connection getConnection(){
-        try {
-            Context initContext= new InitialContext();
-            DataSource ds = (DataSource) initContext.lookup("java:comp/env/jdbc/TestDB");
-            return ds.getConnection();
-        }catch (NamingException | SQLException e){
-            e.printStackTrace();
-            throw new RuntimeException("DB connection problems");
-        }
-    }
 }

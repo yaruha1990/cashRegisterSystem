@@ -131,3 +131,119 @@
 2018-08-31 15:33:50 INFO  Logout:15 - User admin has logged out
 2018-08-31 15:35:19 INFO  RoleCommand:19 - User admin has role admin is logged in
 2018-08-31 15:35:29 INFO  Logout:15 - User admin has logged out
+2018-08-31 17:44:00 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 17:44:00 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 17:44:00 INFO  CheckService:16 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 17:44:00 INFO  CheckService:16 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 17:46:20 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 17:46:27 INFO  Logout:15 - User admin has logged out
+2018-08-31 17:46:31 INFO  RoleCommand:27 - User ioanna has role cashier is logged in
+2018-08-31 20:24:30 INFO  CheckService:29 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 20:24:30 INFO  CheckService:29 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 20:24:30 INFO  CheckService:29 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 20:24:30 INFO  CheckService:29 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 20:26:11 INFO  CheckService:21 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 20:26:11 INFO  CheckService:21 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 20:26:11 INFO  CheckService:21 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 20:26:11 INFO  CheckService:21 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 20:27:04 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 20:27:31 INFO  CreateUser:25 - Admin has started to create user
+2018-08-31 20:27:31 INFO  CreateUser:26 - User's credentials are richi richi seniorCashier
+2018-08-31 20:27:31 INFO  UserDaoImpl:31 - User with login richi has been created successfully
+2018-08-31 20:27:40 INFO  UpdateUserPost:29 - Admin has started to update user.
+2018-08-31 20:27:40 INFO  UpdateUserPost:30 - New user's credentials are 5 richi 0456AFAB2A3C87FE92961CF0BFE8CCDE cashier
+2018-08-31 20:27:40 INFO  UserDaoImpl:113 - User richi has been updated
+2018-08-31 20:27:42 INFO  DeleteUser:25 - Admin has started to delete user
+2018-08-31 20:27:42 INFO  UserDaoImpl:127 - User with id 5 has been deleted
+2018-08-31 20:27:46 INFO  Logout:15 - User admin has logged out
+2018-08-31 20:27:50 INFO  RoleCommand:27 - User ioanna has role cashier is logged in
+2018-08-31 20:28:06 INFO  AddProductToCheck:40 - New check is opened
+2018-08-31 20:28:06 INFO  CheckService:21 - Product 10100001 has been added to check with id 0 in the amount of 2 pieces
+2018-08-31 20:28:09 ERROR CheckDaoImpl:106 - Check creation transaction has been canceled
+2018-08-31 20:28:12 INFO  Logout:15 - User ioanna has logged out
+2018-08-31 20:33:20 INFO  RoleCommand:27 - User ioanna has role cashier is logged in
+2018-08-31 20:33:27 INFO  AddProductToCheck:40 - New check is opened
+2018-08-31 20:33:27 INFO  CheckService:21 - Product 10100001 has been added to check with id 16 in the amount of 5 pieces
+2018-08-31 20:33:29 INFO  CheckDaoImpl:103 - Check with id 16 has been created successfully
+2018-08-31 20:33:45 INFO  Logout:15 - User ioanna has logged out
+2018-08-31 20:33:49 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-08-31 20:33:57 INFO  CheckDetails:25 - User kira started to view details of check with id 12
+2018-08-31 20:34:01 INFO  CheckDetails:25 - User kira started to view details of check with id 8
+2018-08-31 20:34:13 INFO  CheckDetails:25 - User kira started to view details of check with id 14
+2018-08-31 20:34:19 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-31 20:34:19 INFO  CheckDaoImpl:301 - Product with id 1 has been deleted from check id 14 in the amount of 5 pieces
+2018-08-31 20:34:41 INFO  DeleteCheck:25 - User kira started to delete check
+2018-08-31 20:34:41 INFO  CheckDaoImpl:249 - Check with id 14 has been deleted
+2018-08-31 20:34:45 INFO  CheckDetails:25 - User kira started to view details of check with id 3
+2018-08-31 20:35:03 INFO  RoleCommand:23 - User taras has role merchant is logged in
+2018-08-31 20:35:14 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-31 20:35:14 INFO  CheckDaoImpl:301 - Product with id 3 has been deleted from check id 3 in the amount of 5 pieces
+2018-08-31 20:35:26 INFO  CheckSumReport:24 - User kira started to get check sum report with checkSumFrom=0 checkSumTo=200
+2018-08-31 20:35:57 INFO  CheckDetails:25 - User kira started to view details of check with id 4
+2018-08-31 20:36:05 INFO  CheckDateReport:28 - User kira started to get check sum report with checkDateFrom=2018-08-07 checkDateTo=2018-08-31
+2018-08-31 20:36:13 INFO  CheckDetails:25 - User kira started to view details of check with id 16
+2018-08-31 20:36:19 INFO  DeleteProductFromCheck:26 - User kira started to remove product from check
+2018-08-31 20:36:19 INFO  CheckDaoImpl:301 - Product with id 1 has been deleted from check id 16 in the amount of 5 pieces
+2018-08-31 20:36:28 INFO  CheckDateReport:28 - User kira started to get check sum report with checkDateFrom=2018-08-01 checkDateTo=2018-08-31
+2018-08-31 20:36:31 INFO  CheckDetails:25 - User kira started to view details of check with id 16
+2018-08-31 20:36:34 INFO  Logout:15 - User kira has logged out
+2018-08-31 20:40:40 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 20:41:50 INFO  Logout:15 - User admin has logged out
+2018-08-31 20:42:02 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-08-31 20:42:08 INFO  RoleCommand:23 - User taras has role merchant is logged in
+2018-08-31 20:42:13 INFO  AdminLogout:21 - User's session with login taras has been stopped by admin
+2018-08-31 20:42:23 INFO  AdminLogout:21 - User's session with login admin has been stopped by admin
+2018-08-31 21:19:02 INFO  AddProductToCheck:40 - New check is opened
+2018-08-31 21:19:02 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 5 pieces
+2018-08-31 21:33:02 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 5 pieces
+2018-08-31 21:34:27 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 5 pieces
+2018-08-31 21:34:43 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:00:07 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:01:20 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:03:47 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:07:12 INFO  CheckService:21 - Product tomato has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 22:07:12 INFO  CheckService:21 - Product cucmber has been added to check with id 0 in the amount of 5 pieces
+2018-08-31 22:07:12 INFO  CheckService:21 - Product tomato has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 22:07:12 INFO  CheckService:21 - Product cucmber has been added to check with id 0 in the amount of 3 pieces
+2018-08-31 22:10:58 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:23:32 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:24:18 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:34:35 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:46:17 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 6 pieces
+2018-08-31 22:47:41 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 22:51:58 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 22:53:04 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 22:54:53 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 22:56:38 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:06:58 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:07:27 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:10:04 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:10:14 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:10:48 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:11:30 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-08-31 23:12:21 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces
+2018-09-01 09:43:09 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-09-01 09:43:25 INFO  CreateUser:25 - Admin has started to create user
+2018-09-01 09:43:25 INFO  CreateUser:26 - User's credentials are richi richi merchant
+2018-09-01 09:43:25 INFO  UserDaoImpl:31 - User with login richi has been created successfully
+2018-09-01 09:43:31 INFO  UpdateUserPost:29 - Admin has started to update user.
+2018-09-01 09:43:31 INFO  UpdateUserPost:30 - New user's credentials are 6 richi 0456AFAB2A3C87FE92961CF0BFE8CCDE cashier
+2018-09-01 09:43:31 INFO  UserDaoImpl:113 - User richi has been updated
+2018-09-01 09:44:01 INFO  RoleCommand:27 - User richi has role cashier is logged in
+2018-09-01 09:44:09 INFO  DeleteUser:25 - Admin has started to delete user
+2018-09-01 09:44:09 INFO  UserDaoImpl:127 - User with id 6 has been deleted
+2018-09-01 09:44:22 INFO  Logout:15 - User richi has logged out
+2018-09-01 09:44:32 INFO  Logout:15 - User admin has logged out
+2018-09-01 09:44:39 INFO  RoleCommand:27 - User ioanna has role cashier is logged in
+2018-09-01 09:44:41 INFO  Logout:15 - User ioanna has logged out
+2018-09-01 09:44:45 INFO  RoleCommand:31 - User kira has role seniorCashier is logged in
+2018-09-01 09:44:51 INFO  CheckDetails:25 - User kira started to view details of check with id 4
+2018-09-01 09:44:56 INFO  CheckDetails:25 - User kira started to view details of check with id 16
+2018-09-01 09:45:03 INFO  CheckSumReport:24 - User kira started to get check sum report with checkSumFrom=0 checkSumTo=70
+2018-09-01 09:45:07 INFO  CheckDetails:25 - User kira started to view details of check with id 13
+2018-09-01 09:45:21 INFO  CheckDateReport:28 - User kira started to get check sum report with checkDateFrom=2018-08-02 checkDateTo=2018-09-01
+2018-09-01 09:45:25 INFO  CheckDetails:25 - User kira started to view details of check with id 11
+2018-09-01 09:45:37 INFO  RoleCommand:19 - User admin has role admin is logged in
+2018-09-01 09:45:40 INFO  AdminLogout:21 - User's session with login kira has been stopped by admin
+2018-09-01 09:45:47 INFO  Logout:15 - User admin has logged out
+2018-09-01 09:57:16 INFO  CheckService:21 - Product 10100001 has been added to check with id 17 in the amount of 7 pieces

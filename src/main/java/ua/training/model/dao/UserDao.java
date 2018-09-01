@@ -4,7 +4,7 @@ import ua.training.model.entity.User;
 
 import java.util.List;
 
-public interface UserDao extends AutoCloseable {
+public interface UserDao {
     void createUser(User user);
     User findUserById(int id);
     User findUserByLogin(String login);
